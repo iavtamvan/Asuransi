@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottBerranda"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/beranda" />
+
+    <item
+        android:id="@+id/bottMenu"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/Menu" />
+
+    <item
+        android:id="@+id/bottBantuan"
+        android:icon="@drawable/ic_contacts_black_24dp"
+        android:title="@string/Bantuan" />
+    <item
+        android:id="@+id/bottAkun"
+        android:icon="@drawable/ic_account_box_black_24dp"
+        android:title="@string/Akun" />
+
+</menu>

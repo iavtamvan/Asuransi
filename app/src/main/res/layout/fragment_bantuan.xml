@@ -1,0 +1,100 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.BantuanFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10sp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="KONTAK"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#000"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="#000"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8sp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvKontakNewsWeb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8sp"
+                        android:drawablePadding="10sp"
+                        android:drawableTint="#000"
+                        android:text="www.asuransipintar.id"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/tvKontakNewsFacebook"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8sp"
+                        android:drawableLeft="@drawable/facebook_icon"
+                        android:drawablePadding="10sp"
+                        android:drawableTint="#000"
+                        android:text="asuransipintar.ir"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/tvKontakNewsIG"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8sp"
+                        android:drawableLeft="@drawable/instagram_icon"
+                        android:drawablePadding="10sp"
+                        android:drawableTint="#000"
+                        android:text="asuransipintar.id"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/tvKontakNewsEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8sp"
+                        android:drawablePadding="10sp"
+                        android:drawableTint="#000"
+                        android:text=" cs@asuransipintar.id"
+                        android:textColor="#000" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8sp">
+
+            <LinearLayout
+                android:id="@+id/div"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Asuransi Pintar</string>
+    <string name="beranda">Beranda</string>
+    <string name="Menu">Menu</string>
+    <string name="Bantuan">Bantuan</string>
+    <string name="Akun">Akun</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_home_agen">HomeAgenActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

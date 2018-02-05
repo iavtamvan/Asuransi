@@ -120,7 +120,6 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     }
-
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
                         loading.dismiss();

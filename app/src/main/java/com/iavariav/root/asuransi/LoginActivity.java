@@ -129,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         tvLoginBelumPunyaAkun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Video.VideoJiwaUserActivity;
-import com.iavariav.root.asuransi.Activity.Agen.PendaftaranTestingAgenActivity;
+import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranAgenUserActivity;
 import com.iavariav.root.asuransi.R;
 
 /**
@@ -74,7 +74,7 @@ public class MenuFragment extends Fragment {
         divLoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PendaftaranTestingAgenActivity.class));
+                startActivity(new Intent(getActivity(), PendaftaranAgenUserActivity.class));
             }
         });
 

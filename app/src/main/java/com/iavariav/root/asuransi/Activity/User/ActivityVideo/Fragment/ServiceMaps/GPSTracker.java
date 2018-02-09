@@ -21,7 +21,6 @@ import android.util.Log;
  */
 
 public class GPSTracker extends Service implements LocationListener {
-
     private final Context mContext;
 
     // flag for GPS status
@@ -35,7 +34,7 @@ public class GPSTracker extends Service implements LocationListener {
 
     Location location; // location
     double latitude; // latitude
-    double longitude; // longitude
+    double longitude; // longitudeDestination
 
     // The minimum distance to change Updates in meters
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
@@ -68,17 +67,6 @@ public class GPSTracker extends Service implements LocationListener {
                 this.canGetLocation = true;
                 // First get location from Network Provider
                 if (isNetworkEnabled) {
-                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
-//                        return TODO;
-                    }
                     locationManager.requestLocationUpdates(
                             LocationManager.NETWORK_PROVIDER,
                             MIN_TIME_BW_UPDATES,
@@ -96,7 +84,7 @@ public class GPSTracker extends Service implements LocationListener {
                     }
                 }
 
-                // if GPS Enabled get lat/long using GPS Services
+                // if GPS Enabled get latitudeDestination/long using GPS Services
                 if (isGPSEnabled) {
                     if (location == null) {
                         locationManager.requestLocationUpdates(
@@ -150,7 +138,7 @@ public class GPSTracker extends Service implements LocationListener {
     }
 
     /**
-     * Function to get longitude
+     * Function to get longitudeDestination
      * */
 
     public double getLongitude(){
@@ -158,7 +146,7 @@ public class GPSTracker extends Service implements LocationListener {
             longitude = location.getLongitude();
         }
 
-        // return longitude
+        // return longitudeDestination
         return longitude;
     }
 

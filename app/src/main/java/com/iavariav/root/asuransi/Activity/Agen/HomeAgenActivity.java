@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.iavariav.root.asuransi.Activity.Agen.Fragment.HomeAgenFragment;
-import com.iavariav.root.asuransi.Activity.Agen.Fragment.InputNasabahAgenFragment;
+import com.iavariav.root.asuransi.Activity.Agen.Fragment.PendaftaranNasabahAgenFragment;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 
@@ -100,7 +100,7 @@ public class HomeAgenActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_input_nasabah) {
-            fragmentManager.beginTransaction().replace(R.id.container, new InputNasabahAgenFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.container, new PendaftaranNasabahAgenFragment()).commit();
             getSupportActionBar().setTitle("Input Nasabah");
         } else if (id == R.id.nav_follow_up_nasabah) {
 

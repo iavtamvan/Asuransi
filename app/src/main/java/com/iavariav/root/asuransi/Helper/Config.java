@@ -14,9 +14,38 @@ public final class Config {
     public static final String BASE_URL = "";
     public static final String ERROR_NETWORK = "Periksa jaringan anda";
     public static final String ERROR_LOGIN = "Akun tidak terdaftar";
+//    permission
+    public static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 1;
+//    permisson selesai
 
+//    firebase
+// global topic to receive app wide push notifications
+    public static final String TOPIC_GLOBAL = "global";
+
+    // broadcast receiver intent filters
+    public static final String REGISTRATION_COMPLETE = "registrationComplete";
+    public static final String PUSH_NOTIFICATION = "pushNotification";
+
+    // id to handle the notification in the notification tray
+    public static final int NOTIFICATION_ID = 100;
+    public static final int NOTIFICATION_ID_BIG_IMAGE = 101;
+
+    public static final String SHARED_PREF = "ah_firebase";
+//    firebase selesai
+
+
+//    login
     public static final String ERROR_MSG_BERHASIL = "Register berhasil,silahkan melakukan login";
     public static final String ERROR_MSG_ERROR = "User telah ada dengan email ";
+//    login selesai
+
+
+//    maps
+    public static final int ZOOM_TO_LEVEL = 15;
+    public static final int RADIOUS_TO_LEVEL = 100;
+//    maps selesai
+
+
 
 //    Shared
     public static final String SHARED_PREF_NAME = "ASURANSI";
@@ -65,6 +94,29 @@ public final class Config {
         Intent intent = new Intent(context.getApplicationContext(), LoginActivity.class);
         context.startActivity(intent);
 
+    }
+    public static String formatDMY(int year, int month, int date) {
+        String formattedDate = "";
+
+        if(date < 10)   {
+            formattedDate += Integer.toString(year);
+        }
+        else {
+            formattedDate += Integer.toString(year);
+        }
+        formattedDate += "-";
+
+        if(month < 10) {
+            formattedDate += "0" + Integer.toString(month);
+        }
+        else {
+            formattedDate += Integer.toString(month);
+        }
+        formattedDate += "-";
+
+        formattedDate += Integer.toString(date);
+
+        return formattedDate;
     }
 
 }

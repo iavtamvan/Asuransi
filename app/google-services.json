@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "839700730903",
+    "firebase_url": "https://pendaftaranrealtime.firebaseio.com",
+    "project_id": "pendaftaranrealtime",
+    "storage_bucket": "pendaftaranrealtime.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839700730903:android:54b0e95e42ea2ced",
+        "android_client_info": {
+          "package_name": "com.iavariav.datapendaftaran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839700730903-lt2ojums7knn5fje87uoc0kvh03qq8ao.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iavariav.datapendaftaran",
+            "certificate_hash": "ba4042f3388b15faec5aa9e7c3a005d83e18ae00"
+          }
+        },
+        {
+          "client_id": "839700730903-qgru3kjjrh7ha2k7tu4bbnuhfkh3uomm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7hT_bNg-uinBCr9_3jl4pVDx06QvP1yM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839700730903-qgru3kjjrh7ha2k7tu4bbnuhfkh3uomm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839700730903:android:ac9c1b625b7c5825",
+        "android_client_info": {
+          "package_name": "com.example.root.crfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839700730903-qgru3kjjrh7ha2k7tu4bbnuhfkh3uomm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7hT_bNg-uinBCr9_3jl4pVDx06QvP1yM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839700730903:android:7c57f9d8d16abf4b",
+        "android_client_info": {
+          "package_name": "com.iavariav.root.asuransi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839700730903-2fcltdavohju8a8u74s1enah0o8jcsed.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iavariav.root.asuransi",
+            "certificate_hash": "5cd54ada4d865d2fafe4c5b5accc263c1dd75ff3"
+          }
+        },
+        {
+          "client_id": "839700730903-qgru3kjjrh7ha2k7tu4bbnuhfkh3uomm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7hT_bNg-uinBCr9_3jl4pVDx06QvP1yM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839700730903-qgru3kjjrh7ha2k7tu4bbnuhfkh3uomm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

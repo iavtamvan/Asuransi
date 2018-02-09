@@ -1,5 +1,6 @@
 package com.iavariav.root.asuransi.Activity.User.ActivityVideo.Video;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranAgenUserActivity;
 import com.iavariav.root.asuransi.R;
 
 public class VideoJiwaUserActivity extends AppCompatActivity {
@@ -61,6 +63,7 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(VideoJiwaUserActivity.this, PendaftaranAgenUserActivity.class));
 //                if(pref.getSudahLogin()){
 //                    Toast.makeText(VideoJiwaUserActivity.this, "Asuransi", Toast.LENGTH_SHORT).show();
 //                }else{

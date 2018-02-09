@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.iavariav.root.asuransi.Activity.Agen.PendaftaranTestingAgenActivity">
+    tools:context="com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranAgenUserActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,11 +13,13 @@
         android:textStyle="bold"
         android:text="Pendaftaran Agen"
         android:gravity="center"
-        android:textSize="40sp"
+        android:textSize="20dp"
         android:layout_marginTop="20sp"/>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginBottom="8sp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,35 +31,74 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Nomor Verivikasi"
+                    android:id="@+id/edtPendaftaranAgenUserNomorVerivikasi"
+                    android:inputType="number"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Nama Lengkap"
-                    android:id="@+id/edtPendaftaranAgenNamaLengkap"/>
+                    android:id="@+id/edtPendaftaranAgenUserNamaLengkap"/>
             </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jenis kelamin : "/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laki - Laki"
+                    android:id="@+id/rbPendaftaranAgenUserLakiLaki"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perempuan"
+                    android:id="@+id/rbPendaftaranAgenUserPerempuan"/>
+            </RadioGroup>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/containerTanggal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ketuk untuk menentukan tanggal"
+                        android:textSize="12dp"
+                        android:textColor="#b2b2b2"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvPendaftaranAgenUserTanggalLahir"
+                        android:text="Tanggal Lahir"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+            </LinearLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="No KTP"
-                    android:id="@+id/edtPendaftaranAgenNoKtp"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="No Telp"
-                    android:id="@+id/edtPendaftaranAgenNoTelp"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:id="@+id/edtPendaftaranAgenEmail"/>
+                    android:hint="No Telepon"
+                    android:inputType="phone"
+                    android:id="@+id/edtPendaftaranAgenUserPendaftaranAgenNoHp"/>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -66,17 +107,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Alamat"
-                    android:id="@+id/edtPendaftaranAgenAlamat"/>
+                    android:id="@+id/edtPendaftaranAgenUserAlamat"/>
             </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="TTL"
-                    android:id="@+id/edtPendaftaranAgenTTL"/>
-            </android.support.design.widget.TextInputLayout>
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<EditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="Email"-->
+                    <!--android:id="@+id/edtPendaftaranAgenEmail"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<EditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="Alamat"-->
+                    <!--android:id="@+id/edtPendaftaranAgenAlamat"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<EditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="TTL"-->
+                    <!--android:id="@+id/edtPendaftaranAgenTTL"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<EditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="Tanggal Lahir"-->
+                    <!--android:id="@+id/edtPendaftaranAgenTanggalLahir"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -94,7 +162,7 @@
 
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="bottom">
         <Button

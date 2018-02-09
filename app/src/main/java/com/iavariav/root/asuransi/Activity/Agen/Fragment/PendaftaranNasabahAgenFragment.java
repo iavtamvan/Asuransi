@@ -17,10 +17,10 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InputNasabahAgenFragment extends Fragment {
+public class PendaftaranNasabahAgenFragment extends Fragment {
     Spinner sp;
 
-    public InputNasabahAgenFragment() {
+    public PendaftaranNasabahAgenFragment() {
         // Required empty public constructor
     }
 

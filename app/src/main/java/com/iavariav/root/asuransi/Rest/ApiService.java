@@ -31,6 +31,19 @@ public interface ApiService {
     @POST("login.php")
     Call<ResponseBody> login(@Field("email") String email,
                                       @Field("password") String password);
+    @FormUrlEncoded
+    @POST("daftarAsuransi.php")
+    Call<ResponseBody> postPendaftaranAgenUser(@Field("id_user") String id,
+                                      @Field("nomer_verif") String noVeriv,
+                                               @Field("nama") String nama,
+                                               @Field("jenis_kelamin") String jk,
+                                               @Field("tanggal_lahir") String tgllahir,
+                                               @Field("no_telp") String nohp,
+                                               @Field("alamat") String alamat,
+                                               @Field("id_jns_asuransi") String idjnsasuransi
+
+                                               );
+
 
 //    @Multipart
 //    @POST("upload.php")

@@ -75,8 +75,6 @@ public class BantuanFragment extends Fragment {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(getActivity(), "Res " + response, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), "Res " + response, Toast.LENGTH_SHORT).show();
                 if (response.isSuccessful()){
                     try {
                         JSONObject jsonObject = new JSONObject(response.body().string());

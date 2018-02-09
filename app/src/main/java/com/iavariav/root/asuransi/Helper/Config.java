@@ -35,10 +35,13 @@ public final class Config {
 
 
 //    login
-    public static final String ERROR_MSG_BERHASIL = "Register berhasil,silahkan melakukan login";
-    public static final String ERROR_MSG_ERROR = "User telah ada dengan email ";
+    public static final String ERROR_MSG_LOGIN_BERHASIL = "Register berhasil,silahkan melakukan login";
+    public static final String ERROR_MSG_LOGIN_ERROR = "User telah ada dengan email ";
 //    login selesai
 
+//    error data
+    public static final String ERROR_DATA_IN_USED = "Maaf data sudah ada";
+//    error data selesai
 
 //    maps
     public static final int ZOOM_TO_LEVEL = 15;

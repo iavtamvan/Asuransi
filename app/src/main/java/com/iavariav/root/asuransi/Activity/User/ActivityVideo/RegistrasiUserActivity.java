@@ -62,13 +62,13 @@ public class RegistrasiUserActivity extends AppCompatActivity {
                                     try {
                                         JSONObject jsonObject = new JSONObject(response.body().string());
                                         String error_msg = jsonObject.optString("error_msg");
-                                        if (error_msg.contains(Config.ERROR_MSG_BERHASIL)){
-                                            Toast.makeText(RegistrasiUserActivity.this, Config.ERROR_MSG_BERHASIL, Toast.LENGTH_SHORT).show();
+                                        if (error_msg.contains(Config.ERROR_MSG_LOGIN_BERHASIL)){
+                                            Toast.makeText(RegistrasiUserActivity.this, Config.ERROR_MSG_LOGIN_BERHASIL, Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                                             finish();
                                         }
                                         else {
-                                            Toast.makeText(RegistrasiUserActivity.this, Config.ERROR_MSG_ERROR + edtRegistrasiEmail.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RegistrasiUserActivity.this, Config.ERROR_MSG_LOGIN_ERROR + edtRegistrasiEmail.getText().toString().trim(), Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();

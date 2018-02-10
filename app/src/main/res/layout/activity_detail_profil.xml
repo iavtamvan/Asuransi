@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_10"
+    tools:context="com.iavariav.root.asuransi.DetailProfilActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ciFoto"
+            android:layout_centerVertical="true"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:transitionName="image"
+            android:src="@drawable/asuransi" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignBottom="@+id/ciFoto"
+            android:layout_alignEnd="@+id/ciFoto"
+            android:layout_alignRight="@+id/ciFoto"
+            android:layout_gravity="top|right"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <EditText
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_edit_black_24dp"
+            android:paddingRight="10dp"
+            android:hint="Ade Fajar Ariav"
+            android:textStyle="bold"/>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <EditText
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_edit_black_24dp"
+            android:paddingRight="10dp"
+            android:hint=" 08966523483"
+            android:textStyle="bold"/>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <EditText
+
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_edit_black_24dp"
+            android:paddingRight="10dp"
+            android:hint="Semarang"
+            android:textStyle="bold"/>
+    </android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end|left"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+</LinearLayout>

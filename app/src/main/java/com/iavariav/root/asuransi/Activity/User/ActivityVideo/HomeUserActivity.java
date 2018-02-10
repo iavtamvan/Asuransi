@@ -25,6 +25,7 @@ import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.BantuanFr
 import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.BerandaFragment;
 import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.MapsBerandaFragment;
 import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.MenuFragment;
+import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.ProfilUserFragment;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 import com.iavariav.root.asuransi.Service.NotificationUtils;
@@ -104,8 +105,8 @@ public class HomeUserActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle("Bantuan");
                     break;
                 case R.id.bottAkun:
-                    fragment = LoginAkunFragment.newInstance();
-                    getSupportActionBar().setTitle("Akun");
+                    fragment = ProfilUserFragment.newInstance();
+                    getSupportActionBar().setTitle("Profil");
                     break;
             }
             android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

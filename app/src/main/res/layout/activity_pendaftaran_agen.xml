@@ -34,7 +34,7 @@
                     android:hint="Nomor Verivikasi"
                     android:id="@+id/edtPendaftaranAgenUserNomorVerivikasi"
                     android:inputType="number"
-                    android:drawableLeft="@drawable/analysisprocess"
+                    android:drawableLeft="@drawable/ic_fiber_pin_black_24dp"
                     android:drawablePadding="8dp"/>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
@@ -45,13 +45,14 @@
                     android:layout_height="wrap_content"
                     android:hint="Nama Lengkap"
                     android:drawablePadding="8dp"
-                    android:drawableLeft="@drawable/username"
+                    android:drawableLeft="@drawable/ic_card_membership_black_24dp"
                     android:id="@+id/edtPendaftaranAgenUserNamaLengkap"/>
             </android.support.design.widget.TextInputLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jenis kelamin : "/>
+                android:text="Jenis kelamin : "
+                android:drawableLeft="@drawable/ic_gender_black_24dp"/>
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,14 +71,13 @@
             </RadioGroup>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:id="@+id/containerTanggal"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp">
+                android:layout_marginTop="8dp">
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:src="@drawable/calendar"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:hint="No Telepon"
                     android:inputType="phone"
-                    android:drawableLeft="@drawable/phone"
+                    android:drawableLeft="@drawable/ic_call_black_24dp"
                     android:drawablePadding="8dp"
                     android:id="@+id/edtPendaftaranAgenUserNoHp"/>
             </android.support.design.widget.TextInputLayout>
@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Alamat"
                     android:drawablePadding="8dp"
-                    android:drawableLeft="@drawable/placeholder"
+                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
                     android:id="@+id/edtPendaftaranAgenUserAlamat"/>
             </android.support.design.widget.TextInputLayout>
             <!--<android.support.design.widget.TextInputLayout-->

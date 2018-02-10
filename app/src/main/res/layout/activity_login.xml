@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg2"
     tools:context="com.iavariav.root.asuransi.LoginActivity">
 
-    <ScrollView
+    <LinearLayout
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login"
+            android:textAllCaps="true"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="your account"
+            android:textAllCaps="true"
+            android:textSize="30sp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,22 +55,16 @@
             android:orientation="vertical"
             android:layout_margin="8sp">
             <ImageView
-                android:src="@drawable/aspin"
-                android:layout_width="match_parent"
-                android:layout_height="180sp"
+                android:layout_gravity="center"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
                 android:id="@+id/ivAsuransiLogo"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:gravity="center"
-                android:textColor="#000"
-                android:textSize="20sp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/rectangle_gray">
+                >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -40,16 +72,19 @@
                     android:layout_margin="4sp">
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorPrimary">
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Username"
+
                             android:id="@+id/edtLoginUsername" />
                     </android.support.design.widget.TextInputLayout>
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorPrimary">
                         <EditText
                             android:inputType="textPassword"
                             android:layout_width="match_parent"
@@ -67,21 +102,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1sp"
-                        android:background="#000"
+                        android:background="#fff"
                         android:layout_marginTop="8sp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20sp"
-                        android:gravity="center"
-                        android:text="Belum Punya Akun?"
-                        android:textSize="18sp"
-                        android:textColor="#000"
-                        android:id="@+id/tvLoginBelumPunyaAkun"/>
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
-
-</LinearLayout>
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center"
+        android:text="Belum Punya Akun?"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:id="@+id/tvLoginBelumPunyaAkun"/>
+</RelativeLayout>

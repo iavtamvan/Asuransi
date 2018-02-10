@@ -27,6 +27,7 @@
         <activity android:name=".Activity.User.ActivityVideo.RegistrasiUserActivity" />
         <activity android:name=".Activity.User.ActivityVideo.NewsDetailUserActivity" />
         <activity android:name=".Activity.User.ActivityVideo.Video.VideoJiwaUserActivity" />
+        <activity android:name=".DetailProfilActivity"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,7 +40,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Activity.User.ActivityVideo.DetailUserActivty" />
         <activity android:name=".LoginActivity">
         </activity>
         <activity

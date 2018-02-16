@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranAgenUserActivity">
+    tools:context="com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranNasabahUserActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Pendaftaran Agen"
+        android:text="Daftar Nasabah"
         android:gravity="center"
         android:textSize="20dp"
         android:layout_marginTop="20sp"/>
@@ -48,27 +48,17 @@
                     android:drawableLeft="@drawable/ic_card_membership_black_24dp"
                     android:id="@+id/edtPendaftaranAgenUserNamaLengkap"/>
             </android.support.design.widget.TextInputLayout>
-            <TextView
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jenis kelamin : "
-                android:drawableLeft="@drawable/ic_gender_black_24dp"/>
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="onRadioButtonClicked">
-                <RadioButton
-                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Laki - Laki"
-                    android:id="@+id/rbPendaftaranAgenUserLakiLaki"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Perempuan"
-                    android:id="@+id/rbPendaftaranAgenUserPerempuan"/>
-            </RadioGroup>
+                    android:hint="Tempat Lahir"
+                    android:drawableLeft="@drawable/ic_store_black_24dp"
+                    android:drawablePadding="8dp"
+                    android:id="@+id/edtPendaftaranAgenUserTempatLahir"/>
+            </android.support.design.widget.TextInputLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -99,6 +89,49 @@
 
                 </LinearLayout>
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jenis kelamin : "
+                android:drawableLeft="@drawable/ic_gender_black_24dp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onClick="onRadioButtonClicked">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laki - Laki"
+                    android:id="@+id/rbPendaftaranAgenUserLakiLaki"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perempuan"
+                    android:id="@+id/rbPendaftaranAgenUserPerempuan"/>
+            </RadioGroup>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alamat"
+                    android:drawablePadding="8dp"
+                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                    android:id="@+id/edtPendaftaranAgenUserAlamat"/>
+            </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agama"/>
+            <Spinner
+                android:id="@+id/spinnerAGAMA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6sp"
+                android:layout_marginTop="6sp"
+                android:spinnerMode="dropdown" />
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -117,11 +150,61 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Alamat"
+                    android:hint="Pekerjaan"
+                    android:drawableLeft="@drawable/ic_call_black_24dp"
                     android:drawablePadding="8dp"
-                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
-                    android:id="@+id/edtPendaftaranAgenUserAlamat"/>
+                    android:id="@+id/edtPendaftaranAgenUserPekerjaan"/>
             </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kewarganegaraan : "
+                android:drawableLeft="@drawable/ic_language_black_24dp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onClick="onRadioButtonClickedKewarganegaraan"
+                android:layout_marginBottom="8dp">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WNI"
+                    android:id="@+id/rbPendaftaranAgenUserWNI"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WNA"
+                    android:id="@+id/rbPendaftaranAgenUserWNA"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status kawin : "
+                android:drawableLeft="@drawable/ic_gender_black_24dp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onClick="onRadioButtonClickedStatusKawin"
+                android:layout_marginBottom="8dp">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kawin"
+                    android:id="@+id/rbPendaftaranAgenUserKawin"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum Kawin"
+                    android:id="@+id/rbPendaftaranAgenUserBelumKawin"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cerai"
+                    android:id="@+id/rbPendaftaranAgenUserCerai"/>
+            </RadioGroup>
+
             <!--<android.support.design.widget.TextInputLayout-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="wrap_content">-->

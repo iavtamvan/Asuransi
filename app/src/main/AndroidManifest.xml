@@ -18,16 +18,12 @@
         <activity
             android:name=".Activity.User.ActivityVideo.HomeUserActivity"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
-        <activity android:name=".Activity.User.ActivityVideo.PendaftaranAgenUserActivity" >
-
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".Activity.User.ActivityVideo.PendaftaranNasabahUserActivity"></activity>
         <activity android:name=".Activity.User.ActivityVideo.RegistrasiUserActivity" />
         <activity android:name=".Activity.User.ActivityVideo.NewsDetailUserActivity" />
         <activity android:name=".Activity.User.ActivityVideo.Video.VideoJiwaUserActivity" />
-        <activity android:name=".DetailProfilActivity"/>
+        <activity android:name=".DetailProfilActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -40,39 +36,35 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
         <activity
             android:name=".Activity.Agen.HomeAgenActivity"
             android:label="@string/title_activity_home_agen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.Agen.ProfilAgenActivity" />
         <activity android:name=".Activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <!--service-->
+        <!-- service -->
         <!-- Firebase Notifications -->
         <service android:name=".Service.Firebase.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".Service.Firebase.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <!-- ./Firebase Notifications -->
-        <!--selesai service-->
+        <!-- selesai service -->
 
-
-
-
+        <activity android:name=".Activity.User.ActivityVideo.PendaftaranNasabahKeAgenUserActivity"></activity>
     </application>
 
 </manifest>

@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranNasabahKeAgenUserActivity;
 import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Video.VideoJiwaUserActivity;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranAgenUserActivity;
+import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranNasabahUserActivity;
+import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 
 /**
@@ -49,32 +51,48 @@ public class MenuFragment extends Fragment {
         divJiwa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), VideoJiwaUserActivity.class));
+                Bundle bundle = new Bundle();
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_JIWA, "1");
+                Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
+                intent.putExtras(intent);
+                startActivity(intent);
             }
         });
 
         divKendaraan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), VideoJiwaUserActivity.class));
+                Bundle bundle = new Bundle();
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_KENDARAAN, "2");
+                Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
+                intent.putExtras(intent);
+                startActivity(intent);
             }
         });
         divKesehatan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), VideoJiwaUserActivity.class));
+                Bundle bundle = new Bundle();
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_KESEHATAN, "3");
+                Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
+                intent.putExtras(intent);
+                startActivity(intent);
             }
         });
         divProperti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), VideoJiwaUserActivity.class));
+                Bundle bundle = new Bundle();
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_PROPERTY, "4");
+                Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
+                intent.putExtras(intent);
+                startActivity(intent);
             }
         });
         divLoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PendaftaranAgenUserActivity.class));
+                startActivity(new Intent(getActivity(), PendaftaranNasabahKeAgenUserActivity.class));
             }
         });
 

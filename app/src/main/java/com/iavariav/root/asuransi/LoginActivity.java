@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String error_msg = jsonObject.optString("error_msg");
 
                                 if (rule.equals("RL_AGN")){
-                                    startActivity(new Intent(LoginActivity.this, HomeUserActivity.class));
+//                                    startActivity(new Intent(LoginActivity.this, HomeAgenActivity.class));
                                     //Creating a shared preference
                                     SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
 
@@ -105,18 +105,18 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                                     //Adding values to editor
-                                    editor.putString(Config.SHARED_NAMA            , nama);
-                                    editor.putString(Config.SHARED_RULE_LOGIN            , rule);
-                                    editor.putString(Config.SHARED_STATUS_USER          , statususer);
-                                    editor.putString(Config.SHARED_EMAIL         , email);
-                                    editor.putString(Config.SHARED_FULLNAME          , fulllname);
-                                    editor.putString(Config.SHARED_KTP          , ktp);
+                                    editor.putString(Config.SHARED_NAMA , nama);
+                                    editor.putString(Config.SHARED_RULE_LOGIN  , rule);
+                                    editor.putString(Config.SHARED_STATUS_USER , statususer);
+                                    editor.putString(Config.SHARED_EMAIL, email);
+                                    editor.putString(Config.SHARED_FULLNAME, fulllname);
+                                    editor.putString(Config.SHARED_KTP , ktp);
                                     //Saving values to editor
                                     editor.commit();
                                     loading.dismiss();
                                     startActivity(new Intent(getApplicationContext(), HomeAgenActivity.class));
                                 } else if (rule.equals("RL_USER")){
-                                    startActivity(new Intent(LoginActivity.this, HomeAgenActivity.class));
+//                                    startActivity(new Intent(LoginActivity.this, HomeAgenActivity.class));
                                     //Creating a shared preference
                                     SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
 

@@ -36,13 +36,16 @@ public interface ApiService {
     Call<ResponseBody> postPendaftaranAgenUser(@Field("id_user") String id,
                                       @Field("nomer_verif") String noVeriv,
                                                @Field("nama") String nama,
-                                               @Field("jenis_kelamin") String jk,
+                                               @Field("tempat_lahir") String tempatlahir,
                                                @Field("tanggal_lahir") String tgllahir,
-                                               @Field("no_telp") String nohp,
+                                               @Field("jenis_kelamin") String jk,
                                                @Field("alamat") String alamat,
-                                               @Field("id_jns_asuransi") String idjnsasuransi
-
-                                               );
+                                               @Field("agama") String agama,
+                                               @Field("no_telp") String nohp,
+                                               @Field("pekerjaan") String pekerjaan,
+                                               @Field("kewarganegaraan") String kewarganegaraan,
+                                               @Field("status_kawin") String statuskawin,
+                                               @Field("id_jns_asuransi") String idjnsasuransi);
 
 
 //    @Multipart

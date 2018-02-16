@@ -14,6 +14,16 @@ public final class Config {
     public static final String BASE_URL = "";
     public static final String ERROR_NETWORK = "Periksa jaringan anda";
     public static final String ERROR_LOGIN = "Akun tidak terdaftar";
+
+//    bundle
+    public static final String BUNDLE_ID_JENIS_ASURANSI_JIWA= "jiwa";
+    public static final String BUNDLE_ID_JENIS_ASURANSI_KENDARAAN = "kendaraan";
+    public static final String BUNDLE_ID_JENIS_ASURANSI_KESEHATAN = "kesehatan";
+    public static final String BUNDLE_ID_JENIS_ASURANSI_PROPERTY = "property";
+//    selesai bundle
+
+
+
 //    permission
     public static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 1;
 //    permisson selesai

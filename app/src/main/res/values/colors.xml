@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#fc1e1e</color>
     <color name="colorPrimaryDark">#364d70</color>
+    <color name="submitButton">#76ff03</color>
     <color name="colorAccent">#ff4d4d</color>
     <color name="grey_10">#e6e6e6</color>
 </resources>

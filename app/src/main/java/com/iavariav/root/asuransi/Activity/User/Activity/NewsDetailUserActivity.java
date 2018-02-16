@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo;
+package com.iavariav.root.asuransi.Activity.User.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;

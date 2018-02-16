@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment;
+package com.iavariav.root.asuransi.Activity.User.Activity.Fragment;
 
 
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.RegistrasiUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.RegistrasiUserActivity;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 import com.iavariav.root.asuransi.Rest.ApiService;

@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo.Video;
+package com.iavariav.root.asuransi.Activity.User.Activity.Video;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -12,12 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranNasabahUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.PendaftaranNasabahUserActivity;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 
 public class VideoJiwaUserActivity extends AppCompatActivity {
-    String idJiwa, idKendaraan, idKesehatan, idProperty;
+    String dataBundle;
 
     VideoView simpleVideoView;
     MediaController mediaControls;
@@ -35,14 +35,11 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle  = intent.getExtras();
-        idJiwa = bundle.getString(Config.BUNDLE_ID_JENIS_ASURANSI_JIWA);
-        idKendaraan = bundle.getString(Config.BUNDLE_ID_JENIS_ASURANSI_KENDARAAN);
-        idKesehatan = bundle.getString(Config.BUNDLE_ID_JENIS_ASURANSI_KESEHATAN);
-        idProperty = bundle.getString(Config.BUNDLE_ID_JENIS_ASURANSI_PROPERTY);
-        Toast.makeText(this, "Bundle : > " + idJiwa + idKendaraan + idKesehatan + idProperty, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Bundle : > " + idJiwa + idKendaraan + idKesehatan + idProperty, Toast.LENGTH_SHORT).show();
+        dataBundle = bundle.getString(Config.BUNDLE_ID_JENIS_ASURANSI);
+        Toast.makeText(this, "bundle : " + dataBundle, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "bundle : " + dataBundle, Toast.LENGTH_SHORT).show();
 
-        if (idJiwa.contains("1")){
+        if (dataBundle.contains("1")){
             if (mediaControls == null) {
                 // create an object of media controller class
                 mediaControls = new MediaController(VideoJiwaUserActivity.this);
@@ -74,14 +71,14 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_JIWA, "1");
+                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "1");
                     Intent intent = new Intent(getApplicationContext(), PendaftaranNasabahUserActivity.class);
-                    intent.putExtras(intent);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
             });
         }
-        if (idKendaraan.contains("2")){
+        if (dataBundle.contains("2")){
             if (mediaControls == null) {
                 // create an object of media controller class
                 mediaControls = new MediaController(VideoJiwaUserActivity.this);
@@ -113,14 +110,14 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_KENDARAAN, "2");
+                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "2");
                     Intent intent = new Intent(getApplicationContext(), PendaftaranNasabahUserActivity.class);
-                    intent.putExtras(intent);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
             });
         }
-        if (idKesehatan.contains("3")){
+        if (dataBundle.contains("3")){
             if (mediaControls == null) {
                 // create an object of media controller class
                 mediaControls = new MediaController(VideoJiwaUserActivity.this);
@@ -152,14 +149,14 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_KESEHATAN, "3");
+                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "3");
                     Intent intent = new Intent(getApplicationContext(), PendaftaranNasabahUserActivity.class);
-                    intent.putExtras(intent);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
             });
         }
-        if (idProperty.contains("4")){
+        if (dataBundle.contains("4")){
             if (mediaControls == null) {
                 // create an object of media controller class
                 mediaControls = new MediaController(VideoJiwaUserActivity.this);
@@ -191,44 +188,13 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_PROPERTY, "4");
+                    bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "4");
                     Intent intent = new Intent(getApplicationContext(), PendaftaranNasabahUserActivity.class);
-                    intent.putExtras(intent);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
             });
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        btnDaftar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(VideoJiwaUserActivity.this, PendaftaranNasabahUserActivity.class));
-//                if(pref.getSudahLogin()){
-//                    Toast.makeText(VideoJiwaUserActivity.this, "Asuransi", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    tvStatus.setVisibility(View.VISIBLE);
-//                    btnDaftar.setEnabled(false);
-//                }
-            }
-        });
     }
 
     private void initView() {

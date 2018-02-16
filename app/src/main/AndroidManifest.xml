@@ -16,14 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.User.ActivityVideo.HomeUserActivity"
+            android:name=".Activity.User.Activity.HomeUserActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name=".Activity.User.ActivityVideo.PendaftaranNasabahUserActivity"></activity>
-        <activity android:name=".Activity.User.ActivityVideo.RegistrasiUserActivity" />
-        <activity android:name=".Activity.User.ActivityVideo.NewsDetailUserActivity" />
-        <activity android:name=".Activity.User.ActivityVideo.Video.VideoJiwaUserActivity" />
-        <activity android:name=".DetailProfilActivity" />
+        <activity android:name=".Activity.User.Activity.PendaftaranNasabahUserActivity"></activity>
+        <activity android:name=".Activity.User.Activity.RegistrasiUserActivity" />
+        <activity android:name=".Activity.User.Activity.NewsDetailUserActivity" />
+        <activity android:name=".Activity.User.Activity.Video.VideoJiwaUserActivity" />
+        <activity android:name=".Activity.User.Activity.DetailProfilUserActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,7 +36,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".Activity.LoginActivity"></activity>
         <activity
             android:name=".Activity.Agen.HomeAgenActivity"
             android:label="@string/title_activity_home_agen"
@@ -64,7 +64,7 @@
         <!-- ./Firebase Notifications -->
         <!-- selesai service -->
 
-        <activity android:name=".Activity.User.ActivityVideo.PendaftaranNasabahKeAgenUserActivity"></activity>
+        <activity android:name=".Activity.User.Activity.PendaftaranNasabahKeAgenUserActivity"></activity>
     </application>
 
 </manifest>

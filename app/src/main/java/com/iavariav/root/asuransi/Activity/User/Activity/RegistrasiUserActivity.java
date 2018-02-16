@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo;
+package com.iavariav.root.asuransi.Activity.User.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.iavariav.root.asuransi.Activity.LoginActivity;
 import com.iavariav.root.asuransi.Helper.Config;
-import com.iavariav.root.asuransi.LoginActivity;
 import com.iavariav.root.asuransi.R;
 import com.iavariav.root.asuransi.Rest.ApiService;
 import com.iavariav.root.asuransi.Rest.Client;

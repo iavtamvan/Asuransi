@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi;
+package com.iavariav.root.asuransi.Activity;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.nfc.tech.NfcA;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -19,9 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iavariav.root.asuransi.Activity.Agen.HomeAgenActivity;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.HomeUserActivity;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.RegistrasiUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.HomeUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.RegistrasiUserActivity;
 import com.iavariav.root.asuransi.Helper.Config;
+import com.iavariav.root.asuransi.R;
 import com.iavariav.root.asuransi.Rest.ApiService;
 import com.iavariav.root.asuransi.Rest.Client;
 
@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.isSuccessful()){
                             try {
                                 JSONObject jsonObject  = new JSONObject(response.body().string());
+                                String id = jsonObject.optString("id_user");
                                 String nama = jsonObject.optString("nama");
                                 String rule = jsonObject.optString("rule_login");
                                 String statususer = jsonObject.optString("status_user");
@@ -105,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                                     //Adding values to editor
+                                    editor.putString(Config.SHARED_ID_USER , id);
                                     editor.putString(Config.SHARED_NAMA , nama);
                                     editor.putString(Config.SHARED_RULE_LOGIN  , rule);
                                     editor.putString(Config.SHARED_STATUS_USER , statususer);
@@ -124,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                                     //Adding values to editor
+                                    editor.putString(Config.SHARED_ID_USER , id);
                                     editor.putString(Config.SHARED_NAMA            , nama);
                                     editor.putString(Config.SHARED_RULE_LOGIN            , rule);
                                     editor.putString(Config.SHARED_STATUS_USER          , statususer);

@@ -8,9 +8,8 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.HomeUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.HomeUserActivity;
 import com.iavariav.root.asuransi.Helper.Config;
-import com.iavariav.root.asuransi.Service.NotificationUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

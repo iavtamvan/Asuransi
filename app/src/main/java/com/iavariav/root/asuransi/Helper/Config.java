@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.iavariav.root.asuransi.LoginActivity;
+import com.iavariav.root.asuransi.Activity.LoginActivity;
 
 /**
  * Created by root on 1/25/18.
@@ -20,6 +20,7 @@ public final class Config {
     public static final String BUNDLE_ID_JENIS_ASURANSI_KENDARAAN = "kendaraan";
     public static final String BUNDLE_ID_JENIS_ASURANSI_KESEHATAN = "kesehatan";
     public static final String BUNDLE_ID_JENIS_ASURANSI_PROPERTY = "property";
+    public static final String BUNDLE_ID_JENIS_ASURANSI = "jenisasuransi";
 //    selesai bundle
 
 
@@ -62,6 +63,7 @@ public final class Config {
 
 //    Shared
     public static final String SHARED_PREF_NAME = "ASURANSI";
+    public static final String SHARED_ID_USER = "ID";
     public static final String SHARED_NAMA = "NAMA";
     public static final String SHARED_ERROR = "ERROR";
     public static final String SHARED_RULE_LOGIN = "RULE";

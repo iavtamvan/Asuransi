@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.User.ActivityVideo.Video.VideoJiwaUserActivity">
+    tools:context=".Activity.User.Activity.Video.VideoJiwaUserActivity">
 
     <VideoView
         android:id="@+id/simpleVideoView"

@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment;
+package com.iavariav.root.asuransi.Activity.User.Activity.Fragment;
 
 
 import android.content.Intent;
@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranNasabahKeAgenUserActivity;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Video.VideoJiwaUserActivity;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.PendaftaranNasabahUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.PendaftaranNasabahKeAgenUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.Video.VideoJiwaUserActivity;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 
@@ -52,9 +51,9 @@ public class MenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_JIWA, "1");
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "1");
                 Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
-                intent.putExtras(intent);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -63,9 +62,9 @@ public class MenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_KENDARAAN, "2");
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "2");
                 Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
-                intent.putExtras(intent);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -73,9 +72,9 @@ public class MenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_KESEHATAN, "3");
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "3");
                 Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
-                intent.putExtras(intent);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -83,9 +82,9 @@ public class MenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI_PROPERTY, "4");
+                bundle.putString(Config.BUNDLE_ID_JENIS_ASURANSI, "4");
                 Intent intent = new Intent(getActivity(), VideoJiwaUserActivity.class);
-                intent.putExtras(intent);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

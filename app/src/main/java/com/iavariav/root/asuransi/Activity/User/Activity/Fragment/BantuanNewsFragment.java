@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment;
+package com.iavariav.root.asuransi.Activity.User.Activity.Fragment;
 
 
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.NewsDetailUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.NewsDetailUserActivity;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 import com.iavariav.root.asuransi.Rest.ApiService;
@@ -34,7 +34,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BantuanFragment extends Fragment {
+public class BantuanNewsFragment extends Fragment {
 
     private TextView tvKontakNewsWeb;
     private TextView tvKontakNewsFacebook;
@@ -49,12 +49,12 @@ public class BantuanFragment extends Fragment {
     private TextView tvTitle2;
     private TextView tvNews2;
 
-    public static BantuanFragment newInstance() {
-        BantuanFragment fragment = new BantuanFragment();
+    public static BantuanNewsFragment newInstance() {
+        BantuanNewsFragment fragment = new BantuanNewsFragment();
         return fragment;
     }
 
-    public BantuanFragment() {
+    public BantuanNewsFragment() {
         // Required empty public constructor
     }
 

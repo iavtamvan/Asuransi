@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg2"
-    tools:context="com.iavariav.root.asuransi.LoginActivity">
+    tools:context="com.iavariav.root.asuransi.Activity.LoginActivity">
 
     <LinearLayout
         android:layout_alignParentTop="true"

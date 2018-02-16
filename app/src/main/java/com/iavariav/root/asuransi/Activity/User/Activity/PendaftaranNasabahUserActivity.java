@@ -1,8 +1,11 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo;
+package com.iavariav.root.asuransi.Activity.User.Activity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -44,6 +47,9 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
     private String idJenisKelamin;
     private String idStatusKawin;
     private String idStatusKewarganegaraan;
+    private String dataBundle;
+    private String spNamaLengkap;
+    private String spIdUser;
     private Random r;
 
     private Button btnPendaftaranAgenSubmit;
@@ -79,6 +85,18 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
         edtPendaftaranAgenUserNomorVerivikasi.setText("ASPIN" + String.valueOf(random));
         edtPendaftaranAgenUserNomorVerivikasi.setFocusable(false);
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        dataBundle = bundle.getString(Config.BUNDLE_ID_JENIS_ASURANSI);
+        Toast.makeText(this, "Bundle daftar nasabah asuransi : " + dataBundle, Toast.LENGTH_SHORT).show();
+
+        SharedPreferences sp = getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        spNamaLengkap = sp.getString(Config.SHARED_FULLNAME, "");
+        spIdUser = sp.getString(Config.SHARED_ID_USER, "");
+
+        edtPendaftaranAgenUserNamaLengkap.setText(spNamaLengkap);
+        edtPendaftaranAgenUserNamaLengkap.setFocusable(false);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(PendaftaranNasabahUserActivity.this,
                 android.R.layout.simple_spinner_item, agamaItem);
 
@@ -90,7 +108,7 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
                 final ProgressDialog loading = ProgressDialog.show(PendaftaranNasabahUserActivity.this, "Loading", "Harap tunggu...", false, false);
                 ApiService apiService = Client.getInstanceRetrofit();
                 apiService.postPendaftaranAgenUser(
-                        "4",
+                        spIdUser,
                         edtPendaftaranAgenUserNomorVerivikasi.getText().toString().trim(),
                         edtPendaftaranAgenUserNamaLengkap.getText().toString().trim(),
                         edtPendaftaranAgenUserTempatLahir.getText().toString().trim(),
@@ -102,7 +120,7 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
                         edtPendaftaranAgenUserPekerjaan.getText().toString().trim(),
                         idStatusKewarganegaraan,
                         idStatusKawin,
-                        "1"
+                        dataBundle
 
                 ).enqueue(new Callback<ResponseBody>() {
                     @Override
@@ -135,11 +153,10 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
                                 LayoutInflater inflater = LayoutInflater.from(PendaftaranNasabahUserActivity.this);
 //                                final View dialView = inflater.inflate(R.layout.dialog_pilih_aksi, null);
                                 builder.setTitle("Asuransi Pintar");
-                                builder.setMessage(error_msg);
+                                builder.setMessage(error_msg + ", akan dihubungi oleh agen 1x24 jam.");
                                 builder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-//                                        finishAffinity();
                                     }
                                 });
                                 builder.show();
@@ -256,28 +273,6 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    private void initView() {
-        btnPendaftaranAgenSubmit = (Button) findViewById(R.id.btnPendaftaranAgenSubmit);
-        containerTanggal = (LinearLayout) findViewById(R.id.containerTanggal);
-        tvTanggalLahir = (TextView) findViewById(R.id.tvPendaftaranAgenUserTanggalLahir);
-        edtPendaftaranAgenUserNomorVerivikasi = (EditText) findViewById(R.id.edtPendaftaranAgenUserNomorVerivikasi);
-        edtPendaftaranAgenUserNamaLengkap = (EditText) findViewById(R.id.edtPendaftaranAgenUserNamaLengkap);
-        rbPendaftaranAgenUserLakiLaki = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserLakiLaki);
-        rbPendaftaranAgenUserPerempuan = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserPerempuan);
-        tvPendaftaranAgenUserTanggalLahir = (TextView) findViewById(R.id.tvPendaftaranAgenUserTanggalLahir);
-        edtPendaftaranAgenUserNoHp = (EditText) findViewById(R.id.edtPendaftaranAgenUserNoHp);
-        edtPendaftaranAgenUserAlamat = (EditText) findViewById(R.id.edtPendaftaranAgenUserAlamat);
-        edtPendaftaranAgenUserTempatLahir = (EditText) findViewById(R.id.edtPendaftaranAgenUserTempatLahir);
-        tvPendaftaranAgenSyaratdanKetentuan = (TextView) findViewById(R.id.tvPendaftaranAgenSyaratdanKetentuan);
-        spinnerAGAMA = (Spinner) findViewById(R.id.spinnerAGAMA);
-        edtPendaftaranAgenUserPekerjaan = (EditText) findViewById(R.id.edtPendaftaranAgenUserPekerjaan);
-        rbPendaftaranAgenUserKawin = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserKawin);
-        rbPendaftaranAgenUserBelumKawin = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserBelumKawin);
-        rbPendaftaranAgenUserCerai = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserCerai);
-        rbPendaftaranAgenUserWNI = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserWNI);
-        rbPendaftaranAgenUserWNA = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserWNA);
-    }
-
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
         switch (view.getId()) {
@@ -329,5 +324,27 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
                 }
                 break;
         }
+    }
+
+    private void initView() {
+        btnPendaftaranAgenSubmit = (Button) findViewById(R.id.btnPendaftaranAgenSubmit);
+        containerTanggal = (LinearLayout) findViewById(R.id.containerTanggal);
+        tvTanggalLahir = (TextView) findViewById(R.id.tvPendaftaranAgenUserTanggalLahir);
+        edtPendaftaranAgenUserNomorVerivikasi = (EditText) findViewById(R.id.edtPendaftaranAgenUserNomorVerivikasi);
+        edtPendaftaranAgenUserNamaLengkap = (EditText) findViewById(R.id.edtPendaftaranAgenUserNamaLengkap);
+        rbPendaftaranAgenUserLakiLaki = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserLakiLaki);
+        rbPendaftaranAgenUserPerempuan = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserPerempuan);
+        tvPendaftaranAgenUserTanggalLahir = (TextView) findViewById(R.id.tvPendaftaranAgenUserTanggalLahir);
+        edtPendaftaranAgenUserNoHp = (EditText) findViewById(R.id.edtPendaftaranAgenUserNoHp);
+        edtPendaftaranAgenUserAlamat = (EditText) findViewById(R.id.edtPendaftaranAgenUserAlamat);
+        edtPendaftaranAgenUserTempatLahir = (EditText) findViewById(R.id.edtPendaftaranAgenUserTempatLahir);
+        tvPendaftaranAgenSyaratdanKetentuan = (TextView) findViewById(R.id.tvPendaftaranAgenSyaratdanKetentuan);
+        spinnerAGAMA = (Spinner) findViewById(R.id.spinnerAGAMA);
+        edtPendaftaranAgenUserPekerjaan = (EditText) findViewById(R.id.edtPendaftaranAgenUserPekerjaan);
+        rbPendaftaranAgenUserKawin = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserKawin);
+        rbPendaftaranAgenUserBelumKawin = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserBelumKawin);
+        rbPendaftaranAgenUserCerai = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserCerai);
+        rbPendaftaranAgenUserWNI = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserWNI);
+        rbPendaftaranAgenUserWNA = (RadioButton) findViewById(R.id.rbPendaftaranAgenUserWNA);
     }
 }

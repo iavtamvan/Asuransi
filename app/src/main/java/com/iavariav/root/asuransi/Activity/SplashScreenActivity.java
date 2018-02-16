@@ -9,9 +9,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.iavariav.root.asuransi.Activity.Agen.HomeAgenActivity;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.HomeUserActivity;
+import com.iavariav.root.asuransi.Activity.User.Activity.HomeUserActivity;
 import com.iavariav.root.asuransi.Helper.Config;
-import com.iavariav.root.asuransi.LoginActivity;
 import com.iavariav.root.asuransi.R;
 
 public class SplashScreenActivity extends AppCompatActivity {

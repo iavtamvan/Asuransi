@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.iavariav.root.asuransi.Activity.User.ActivityVideo.RegisterUserAsuransi">
+    tools:context="com.iavariav.root.asuransi.Activity.User.Activity.RegisterUserAsuransi">
     <TextView
         android:layout_marginTop="6dp"
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.iavariav.root.asuransi.Activity.User.ActivityVideo;
+package com.iavariav.root.asuransi.Activity.User.Activity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -20,15 +20,13 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.LoginAkunFragment;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.BantuanFragment;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.BerandaFragment;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.MapsBerandaFragment;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.MenuFragment;
-import com.iavariav.root.asuransi.Activity.User.ActivityVideo.Fragment.ProfilUserFragment;
+import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.BantuanNewsFragment;
+import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.BerandaMapsFragment;
+import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.MenuFragment;
+import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.ProfilUserFragment;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
-import com.iavariav.root.asuransi.Service.NotificationUtils;
+import com.iavariav.root.asuransi.Service.Firebase.NotificationUtils;
 
 
 public class HomeUserActivity extends AppCompatActivity {
@@ -46,7 +44,7 @@ public class HomeUserActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Beranda");
         fragmentManager.beginTransaction()
                 .replace(R.id.content,
-                        new BerandaFragment())
+                        new BerandaMapsFragment())
                 .commit();
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -93,7 +91,7 @@ public class HomeUserActivity extends AppCompatActivity {
             switch (item.getItemId()) {
 
                 case R.id.bottBerranda:
-                    fragment =  BerandaFragment.newInstance();
+                    fragment =  BerandaMapsFragment.newInstance();
                     getSupportActionBar().setTitle("Beranda");
                     break;
                 case R.id.bottMenu:
@@ -101,7 +99,7 @@ public class HomeUserActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle("Menu");
                     break;
                 case R.id.bottBantuan:
-                    fragment = BantuanFragment.newInstance();
+                    fragment = BantuanNewsFragment.newInstance();
                     getSupportActionBar().setTitle("Bantuan");
                     break;
                 case R.id.bottAkun:

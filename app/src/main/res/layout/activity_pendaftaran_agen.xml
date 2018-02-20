@@ -151,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Pekerjaan"
-                    android:drawableLeft="@drawable/ic_call_black_24dp"
+                    android:drawableLeft="@drawable/ic_work_black_24dp"
                     android:drawablePadding="8dp"
                     android:id="@+id/edtPendaftaranAgenUserPekerjaan"/>
             </android.support.design.widget.TextInputLayout>

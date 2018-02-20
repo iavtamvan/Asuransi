@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
 
 
 
-    private Button btnDaftar;
+    private ImageView btnDaftar;
     private TextView tvStatus;
 
     @Override
@@ -198,7 +199,7 @@ public class VideoJiwaUserActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        btnDaftar = (Button) findViewById(R.id.btn_daftar);
+        btnDaftar = (ImageView) findViewById(R.id.btn_daftar);
         tvStatus = (TextView) findViewById(R.id.tv_status);
         simpleVideoView = (VideoView) findViewById(R.id.simpleVideoView);
 

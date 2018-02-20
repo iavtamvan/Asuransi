@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.User.Activity.Video.VideoJiwaUserActivity">
+    tools:context=".Activity.User.ActivityVideo.Video.VideoJiwaUserActivity">
 
     <VideoView
         android:id="@+id/simpleVideoView"
@@ -19,11 +19,21 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_below="@id/simpleVideoView">
-        <Button
-            android:id="@+id/btn_daftar"
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DAFTAR"/>
+            android:text="daftar"
+            android:textAllCaps="true"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
+        <ImageView
+            android:id="@+id/btn_daftar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:text="DAFTAR"
+            android:src="@drawable/user2"/>
         <TextView
             android:padding="5dp"
             android:id="@+id/tv_status"

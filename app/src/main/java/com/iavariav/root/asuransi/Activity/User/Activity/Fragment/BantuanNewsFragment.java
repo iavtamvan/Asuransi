@@ -101,8 +101,6 @@ public class BantuanNewsFragment extends Fragment {
                             final TextView tvisi = addView.findViewById(R.id.tvIsiNews);
                             tvisi.setText(art_isi + " ....");
 
-                            Toast.makeText(getActivity(), "id : " + id_artikel + "gambar : ", Toast.LENGTH_SHORT).show();
-
                             final CardView cvKlik = addView.findViewById(R.id.cv);
                             cvKlik.setOnClickListener(new View.OnClickListener() {
                                 @Override

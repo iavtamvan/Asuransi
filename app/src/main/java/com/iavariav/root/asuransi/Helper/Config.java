@@ -95,6 +95,7 @@ public final class Config {
         SharedPreferences preferences = context.getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         //Getting editor
         SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(Config.SHARED_ID_USER, "");
         editor.putString(Config.SHARED_NAMA   , "");
         editor.putString(Config.SHARED_ERROR    , "");
         editor.putString(Config.SHARED_RULE_LOGIN  , "");

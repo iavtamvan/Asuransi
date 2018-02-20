@@ -30,6 +30,7 @@ public class ProfilUserFragment extends Fragment {
     private TextView tvProfilNoHp;
     private TextView tvProfilNIK;
     private TextView tvProfilEmail;
+    private TextView tvprofilLogout;
 
     public static ProfilUserFragment newInstance() {
         ProfilUserFragment fragment = new ProfilUserFragment();
@@ -50,8 +51,8 @@ public class ProfilUserFragment extends Fragment {
         initView(view);
 
         SharedPreferences sp = getActivity().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        tvProfilNamaLengkap.setText(sp.getString(Config.SHARED_FULLNAME,""));
-        tvprofilStatusUser.setText(sp.getString(Config.SHARED_STATUS_USER,""));
+        tvProfilNamaLengkap.setText(sp.getString(Config.SHARED_FULLNAME, ""));
+        tvprofilStatusUser.setText(sp.getString(Config.SHARED_STATUS_USER, ""));
         tvProfilNoHp.setText("083838191709");
         tvProfilNIK.setText(sp.getString(Config.SHARED_KTP, ""));
         tvProfilEmail.setText(sp.getString(Config.SHARED_EMAIL, ""));
@@ -61,6 +62,13 @@ public class ProfilUserFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), DetailProfilUserActivity.class);
                 ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), ciFoto, ViewCompat.getTransitionName(ciFoto));
                 startActivity(intent, compat.toBundle());
+            }
+        });
+
+        tvprofilLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Config.forceLogout(getActivity());
             }
         });
         return view;
@@ -73,5 +81,6 @@ public class ProfilUserFragment extends Fragment {
         tvProfilNoHp = (TextView) view.findViewById(R.id.tvProfilNoHp);
         tvProfilNIK = (TextView) view.findViewById(R.id.tvProfilNIK);
         tvProfilEmail = (TextView) view.findViewById(R.id.tvProfilEmail);
+        tvprofilLogout = (TextView) view.findViewById(R.id.tvprofilLogout);
     }
 }

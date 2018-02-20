@@ -8,7 +8,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8sp"
+        android:layout_margin="5sp"
         android:id="@+id/cv"
         app:cardCornerRadius="10sp">
         <LinearLayout
@@ -17,16 +17,15 @@
             android:orientation="horizontal"
             android:layout_margin="8sp">
             <ImageView
-                android:layout_width="90sp"
-                android:layout_height="90sp"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
                 android:id="@+id/img"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@drawable/newspaper"/>
             <View
                 android:layout_width="1sp"
                 android:layout_height="match_parent"
                 android:background="#b2b2b2"
-                android:paddingLeft="8sp"
-                android:paddingRight="8sp"/>
+                android:layout_marginLeft="10dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -37,12 +36,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tvJudulNews"
                     android:text="Judul"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold|italic" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tvPenerbitNews"
@@ -50,6 +51,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:textColor="@color/colorPrimaryDark"
                         android:id="@+id/tvTanggalNews"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

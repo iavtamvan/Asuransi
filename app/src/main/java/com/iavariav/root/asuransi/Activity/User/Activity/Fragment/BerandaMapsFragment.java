@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -22,19 +24,27 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.iavariav.root.asuransi.Service.ServiceMaps.GPSTracker;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
+import com.iavariav.root.asuransi.Service.ServiceMaps.GPSTracker;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BerandaMapsFragment extends Fragment implements
-        OnMapReadyCallback, GoogleMap.OnPoiClickListener{
+        OnMapReadyCallback, GoogleMap.OnPoiClickListener {
     private MapView mapV;
     GPSTracker gpsTracker;
     private double Lat, Long;
     private GoogleMap mMap;
+    private LinearLayout containerDetailAgen;
+    private CircleImageView cvImageDialogAgenHistory;
+    private TextView tvDialogNomerAspin;
+    private TextView tvDialogStatusGolonganAgen;
+    private TextView tvDialogStatusPendaftaranAgen;
+    private TextView tvShowHide;
 //    private Polyline mMutablePolyline;
 
     public static BerandaMapsFragment newInstance() {
@@ -47,12 +57,31 @@ public class BerandaMapsFragment extends Fragment implements
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_beranda, container, false);
+        initView(view);
+
+        tvShowHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (tvShowHide.getText().toString().equals("sembunyikan")){
+                    containerDetailAgen.setVisibility(View.GONE);
+                    tvShowHide.setText("tampilkan");
+                } 
+                else if (tvShowHide.getText().toString().equals("tampilkan")){
+                    containerDetailAgen.setVisibility(View.VISIBLE);
+                    tvShowHide.setText("sembunyikan");
+                } else {
+                    Toast.makeText(getActivity(), "Error Visibliting", Toast.LENGTH_SHORT).show();
+                }
+                
+                
+            }
+        });
+
 
         mapV = (MapView) view.findViewById(R.id.maps);
         mapV.onCreate(savedInstanceState);
@@ -63,7 +92,6 @@ public class BerandaMapsFragment extends Fragment implements
             Lat = gpsTracker.getLatitude();
             Long = gpsTracker.getLongitude();
             MapsInitializer.initialize(getActivity());
-            Toast.makeText(getActivity(), "" + Lat + Long,  Toast.LENGTH_SHORT).show();
 //            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         } else {
             gpsTracker.showSettingsAlert();
@@ -83,7 +111,7 @@ public class BerandaMapsFragment extends Fragment implements
                     return;
                 }
                 ;
-                LatLng user = new LatLng(Lat,Long);
+                LatLng user = new LatLng(Lat, Long);
 //                LatLng hermina = new LatLng(-7.0247246, 110.3820431);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(Config.ZOOM_TO_LEVEL));
@@ -117,13 +145,13 @@ public class BerandaMapsFragment extends Fragment implements
 
 
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(-6.987714,110.408473))
+                        .position(new LatLng(-6.987714, 110.408473))
                         .title("Agen Pelangi")
                         .snippet("gold")
                         .icon(silver));
 
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(-7.0399922,110.3525043))
+                        .position(new LatLng(-7.0399922, 110.3525043))
                         .title("Agen Kreo")
                         .snippet("Silver")
                         .icon(brows));
@@ -133,11 +161,11 @@ public class BerandaMapsFragment extends Fragment implements
 
         PolylineOptions polylineOptions = new PolylineOptions()
                 .add(new LatLng(Lat, Long))
-                .add(new LatLng(-7.0399922,110.3525043));
+                .add(new LatLng(-7.0399922, 110.3525043));
 //        Polyline polyline = mMap.addPolyline(polylineOptions);
 //        polyline
 
-        return view ;
+        return view;
     }
 
 
@@ -158,5 +186,14 @@ public class BerandaMapsFragment extends Fragment implements
                         "\nLatitude:" + pointOfInterest.latLng.latitude +
                         " Longitude:" + pointOfInterest.latLng.longitude,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    private void initView(View view) {
+        containerDetailAgen = view.findViewById(R.id.containerDetailAgen);
+        cvImageDialogAgenHistory = view.findViewById(R.id.cvImageDialogAgenHistory);
+        tvDialogNomerAspin = view.findViewById(R.id.tvDialogNomerAspin);
+        tvDialogStatusGolonganAgen = view.findViewById(R.id.tvDialogStatusGolonganAgen);
+        tvDialogStatusPendaftaranAgen = view.findViewById(R.id.tvDialogStatusPendaftaranAgen);
+        tvShowHide = view.findViewById(R.id.tvShowHide);
     }
 }

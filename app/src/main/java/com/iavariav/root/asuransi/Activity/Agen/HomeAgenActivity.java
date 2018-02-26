@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.iavariav.root.asuransi.Activity.Agen.Fragment.FollowUpNasabahAgenFragment;
 import com.iavariav.root.asuransi.Activity.Agen.Fragment.HomeAgenFragment;
 import com.iavariav.root.asuransi.Activity.Agen.Fragment.PendaftaranNasabahAgenFragment;
 import com.iavariav.root.asuransi.Helper.Config;
@@ -37,7 +38,7 @@ public class HomeAgenActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.container, new HomeAgenFragment()).commit();
-        getSupportActionBar().setTitle("Input Nasabah");
+        getSupportActionBar().setTitle("Home");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +104,8 @@ public class HomeAgenActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.container, new PendaftaranNasabahAgenFragment()).commit();
             getSupportActionBar().setTitle("Input Nasabah");
         } else if (id == R.id.nav_follow_up_nasabah) {
-
+            fragmentManager.beginTransaction().replace(R.id.container, new FollowUpNasabahAgenFragment()).commit();
+            getSupportActionBar().setTitle("Follow up");
         } else if (id == R.id.nav_home){
             fragmentManager.beginTransaction().replace(R.id.container, new HomeAgenFragment()).commit();
             getSupportActionBar().setTitle("Home");

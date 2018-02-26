@@ -49,6 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.Agen.DetailHomeAgenActivity"/>
         <!-- service -->
         <!-- Firebase Notifications -->
         <service android:name=".Service.Firebase.MyFirebaseMessagingService">
@@ -65,6 +66,7 @@
         <!-- selesai service -->
 
         <activity android:name=".Activity.User.Activity.PendaftaranNasabahKeAgenUserActivity"></activity>
+        <activity android:name=".Activity.Agen.DetailFollowUpActivity"/>
     </application>
 
 </manifest>

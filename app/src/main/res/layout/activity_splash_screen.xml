@@ -9,9 +9,8 @@
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/aspin"
-        android:visibility="gone"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/aspin"/>
 
     <TextView
         android:id="@+id/txt"
@@ -24,7 +23,8 @@
         android:textAllCaps="true"
         android:textColor="@color/hijau"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone"/>
     <com.airbnb.lottie.LottieAnimationView
         android:layout_centerVertical="true"
         android:layout_below="@id/image"
@@ -34,10 +34,12 @@
         app:lottie_fileName="loading.json"
         android:layout_gravity="bottom|end"
         app:lottie_loop="true"
-        app:lottie_autoPlay="true" />
+        app:lottie_autoPlay="true"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/txt2"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sp"

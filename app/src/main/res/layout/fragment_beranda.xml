@@ -35,18 +35,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp">
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/aspin"/>
                 <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NAMA AGENNYA"
                     android:textStyle="bold" />
                 <TextView
+                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -55,9 +62,10 @@
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#b2b2b2"/>
+                android:layout_height="15dp"
+                android:background="@color/colorPrimary"/>
             <LinearLayout
+                android:background="#e4e4e4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -66,28 +74,60 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/aspin"
+                    android:layout_gravity="center"
                     android:id="@+id/cvImageDialogAgenHistory"/>
                 <View
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    android:background="#b2b2b2"/>
+                    android:background="#fdfdfd"/>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="4dp">
                     <TextView
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nomor Aspin"
-                        android:id="@+id/tvDialogNomerAspin"/>
+                        android:text="Nomor Aspin" />
                     <TextView
+                        android:fontFamily="monospace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="727e"
+                        android:textSize="15sp"
+                        android:id="@+id/tvDialogNomerAspin"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#fafafa"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status" />
+                    <TextView
+                        android:fontFamily="monospace"
+                        android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Status"
                         android:id="@+id/tvDialogStatusGolonganAgen"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#fcfbfb"/>
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status Pendaftaran"
+                        android:textStyle="bold"/>
+                    <TextView
+
+                        android:fontFamily="monospace"
+                        android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Status Pendaftaran"

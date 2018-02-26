@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="80sp"
                 android:layout_height="80sp"
-                android:id="@+id/img"
+                android:id="@+id/ivBantuanNews"
                 android:src="@drawable/newspaper"/>
             <View
                 android:layout_width="1sp"

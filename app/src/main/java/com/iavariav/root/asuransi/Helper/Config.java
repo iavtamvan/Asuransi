@@ -14,6 +14,8 @@ public final class Config {
     public static final String BASE_URL = "";
     public static final String ERROR_NETWORK = "Periksa jaringan anda";
     public static final String ERROR_LOGIN = "Akun tidak terdaftar";
+    public static final String FACEBOOK_URL = "https://www.facebook.com/YourPageName";
+    public static final String FACEBOOK_PAGE_ID = "YourPageName";
 
 //    bundle
     public static final String BUNDLE_ID_JENIS_ASURANSI_JIWA= "jiwa";

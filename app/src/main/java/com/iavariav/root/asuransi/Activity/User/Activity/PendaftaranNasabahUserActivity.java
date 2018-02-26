@@ -157,6 +157,7 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
                                 builder.setNegativeButton("Tutup", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        startActivity(new Intent(getApplicationContext(), HomeUserActivity.class));
                                     }
                                 });
                                 builder.show();

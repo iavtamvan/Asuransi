@@ -91,6 +91,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Daftar"
-        android:background="@color/submitButton"
+        android:background="@color/colorPrimaryDark"
         android:textColor="#FFF"/>
 </LinearLayout>

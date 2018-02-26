@@ -58,26 +58,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff"
+                android:background="#aba9a9"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/browser" />
+                        android:background="#fff"
+                        android:src="@drawable/browser"
+                        android:layout_marginRight="1dp"
+                        android:id="@+id/btnWebsite"/>
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:background="#fff"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/instagram" />
+                        android:src="@drawable/instagram"
+                        android:id="@+id/btnInstagram"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -92,8 +97,10 @@
                         android:text="asuransi.com"
                         android:textAlignment="center"
                         android:id="@+id/tvKontakNewsWeb"
+                        android:background="#fff"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginRight="1dp"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -101,37 +108,45 @@
                         android:layout_weight="1"
                         android:text="asuransi.com"
                         android:textAlignment="center"
+                        android:background="#fff"
                         android:textColor="@color/colorPrimaryDark"
                         android:id="@+id/tvKontakNewsIG"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginTop="1dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:background="#fff"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/facebook" />
+                        android:src="@drawable/facebook"
+                        android:layout_marginRight="1dp"
+                        android:id="@+id/btnFb"/>
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:background="#fff"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/google" />
+                        android:src="@drawable/google"
+                        android:id="@+id/btnGmail"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+
                     android:orientation="horizontal">
 
                     <TextView
+                        android:background="#fff"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -139,18 +154,31 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:id="@+id/tvKontakNewsFacebook"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginRight="1dp"/>
 
                     <TextView
+                        android:background="#fff"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="asuransi.com"
                         android:textAlignment="center"
+                        android:id="@+id/tvKontakNewsGooglePlus"
                         android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
+            <TextView
+                android:background="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Berita"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -166,5 +194,4 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </ScrollView>
-</FrameLayout>
+    </ScrollView></FrameLayout>

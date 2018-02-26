@@ -1,6 +1,8 @@
 package com.iavariav.root.asuransi.Rest;
 
+import com.iavariav.root.asuransi.Model.CallCenterModel;
 import com.iavariav.root.asuransi.Model.LoginModel;
+import com.iavariav.root.asuransi.Model.VideoModel;
 
 import java.util.ArrayList;
 
@@ -18,6 +20,10 @@ import retrofit2.http.POST;
 public interface ApiService {
     @GET("artikel.php")
     Call<ResponseBody> getNews();
+    @GET("getVideo.php")
+    Call<ArrayList<VideoModel>> getVideo();
+    @GET("callcenter.php")
+    Call<ArrayList<CallCenterModel>> getCallCenter();
 
     @FormUrlEncoded
     @POST("register.php")

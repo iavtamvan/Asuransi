@@ -2,10 +2,13 @@ package com.iavariav.root.asuransi.Activity.User.Activity.Fragment;
 
 
 import android.Manifest;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +28,23 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.iavariav.root.asuransi.Helper.Config;
+import com.iavariav.root.asuransi.Model.GetAgenModel;
 import com.iavariav.root.asuransi.R;
+import com.iavariav.root.asuransi.Rest.ApiService;
+import com.iavariav.root.asuransi.Rest.Client;
 import com.iavariav.root.asuransi.Service.ServiceMaps.GPSTracker;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,6 +61,9 @@ public class BerandaMapsFragment extends Fragment implements
     private TextView tvDialogStatusGolonganAgen;
     private TextView tvDialogStatusPendaftaranAgen;
     private TextView tvShowHide;
+
+    private ArrayList<GetAgenModel> getAgenModels;
+    private String TAG;
 //    private Polyline mMutablePolyline;
 
     public static BerandaMapsFragment newInstance() {
@@ -64,21 +83,23 @@ public class BerandaMapsFragment extends Fragment implements
         View view = inflater.inflate(R.layout.fragment_beranda, container, false);
         initView(view);
 
+        getAgenModels = new ArrayList<>();
+
         tvShowHide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (tvShowHide.getText().toString().equals("sembunyikan")){
                     containerDetailAgen.setVisibility(View.GONE);
                     tvShowHide.setText("tampilkan");
-                } 
+                }
                 else if (tvShowHide.getText().toString().equals("tampilkan")){
                     containerDetailAgen.setVisibility(View.VISIBLE);
                     tvShowHide.setText("sembunyikan");
                 } else {
                     Toast.makeText(getActivity(), "Error Visibliting", Toast.LENGTH_SHORT).show();
                 }
-                
-                
+
+
             }
         });
 
@@ -92,6 +113,38 @@ public class BerandaMapsFragment extends Fragment implements
             Lat = gpsTracker.getLatitude();
             Long = gpsTracker.getLongitude();
             MapsInitializer.initialize(getActivity());
+
+            LatLng user = new LatLng(Lat, Long);
+
+//            mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
+//            mMap.animateCamera(CameraUpdateFactory.zoomTo(Config.ZOOM_TO_LEVEL));
+
+            SharedPreferences sp = getActivity().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+            String userID = sp.getString(String.valueOf(Config.SHARED_ID_USER), "");
+            ApiService apiService = Client.getInstanceRetrofit();
+            apiService.updateLoctionUser(
+                    userID, Lat, Long
+            ).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()){
+                        try {
+                            Toast.makeText(getActivity(), "sukses response lat long send" , Toast.LENGTH_SHORT).show();
+                            JSONObject jsonObject = new JSONObject(response.body().string());
+                            String message = jsonObject.optString("message");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(getActivity(), "" + Config.ERROR_NETWORK,  Toast.LENGTH_SHORT).show();
+                }
+            });
 //            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         } else {
             gpsTracker.showSettingsAlert();
@@ -100,25 +153,71 @@ public class BerandaMapsFragment extends Fragment implements
 
         mapV.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap googleMap) {
-                mMap = googleMap;
+            public void onMapReady(final GoogleMap googleMap) {
 
-                BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.star);
-                BitmapDescriptor silver = BitmapDescriptorFactory.fromResource(R.drawable.silver);
-                BitmapDescriptor brows = BitmapDescriptorFactory.fromResource(R.drawable.brows);
-                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
-                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    return;
-                }
-                ;
-                LatLng user = new LatLng(Lat, Long);
+//                masuk kesini
+                ApiService apiService = Client.getInstanceRetrofit();
+                Call<ArrayList<GetAgenModel>> call = apiService.getAgenAll();
+                call.enqueue(new Callback<ArrayList<GetAgenModel>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<GetAgenModel>> call, Response<ArrayList<GetAgenModel>> response) {
+                        if (response.isSuccessful()){
+                            getAgenModels = response.body();
+
+                            for (int i = 0; i < getAgenModels.size(); i++) {
+                                mMap = googleMap;
+
+                                BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.star);
+                                BitmapDescriptor silver = BitmapDescriptorFactory.fromResource(R.drawable.silver);
+                                BitmapDescriptor brows = BitmapDescriptorFactory.fromResource(R.drawable.brows);
+                                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
+                                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                    return;
+                                }
+                                ;
+                                LatLng user = new LatLng(Lat, Long);
 //                LatLng hermina = new LatLng(-7.0247246, 110.3820431);
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(Config.ZOOM_TO_LEVEL));
-                //                mMap.addCircle(new CircleOptions()
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(Config.ZOOM_TO_LEVEL));
+                                //                mMap.addCircle(new CircleOptions()
 //                .center(user).radius(Config.RADIOUS_TO_LEVEL));
 //                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID); // klo di hilangin jadi biasa aja
-                mMap.setMyLocationEnabled(true);
+                                mMap.setMyLocationEnabled(true);
+
+                                googleMap.addMarker(new MarkerOptions()
+                                        .position(new LatLng(getAgenModels.get(i).getAGNLOCLAT(), getAgenModels.get(i).getAGNLOCLNG()))
+                                        .title(getAgenModels.get(i).getAGNNAME())
+                                        .snippet("gold")
+                                        .icon(icon));
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<GetAgenModel>> call, Throwable t) {
+                        Toast.makeText(getActivity(), "" + Config.ERROR_NETWORK, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+//                mMap = googleMap;
+//
+//                BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.star);
+//                BitmapDescriptor silver = BitmapDescriptorFactory.fromResource(R.drawable.silver);
+//                BitmapDescriptor brows = BitmapDescriptorFactory.fromResource(R.drawable.brows);
+//                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
+//                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                    return;
+//                }
+//                ;
+//                LatLng user = new LatLng(Lat, Long);
+////                LatLng hermina = new LatLng(-7.0247246, 110.3820431);
+//                mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
+//                mMap.animateCamera(CameraUpdateFactory.zoomTo(Config.ZOOM_TO_LEVEL));
+//                //                mMap.addCircle(new CircleOptions()
+////                .center(user).radius(Config.RADIOUS_TO_LEVEL));
+////                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID); // klo di hilangin jadi biasa aja
+//                mMap.setMyLocationEnabled(true);
 
 //                mMap.addPolyline(new PolylineOptions()
 //                .add(user, AKL)
@@ -137,24 +236,24 @@ public class BerandaMapsFragment extends Fragment implements
 
                 // Zoom in the Google Map
 //                googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(-7.0247246, 110.3820431))
-                        .title("Agen Hermina")
-                        .snippet("gold")
-                        .icon(icon));
+//                googleMap.addMarker(new MarkerOptions()
+//                        .position(new LatLng(-7.0247246, 110.3820431))
+//                        .title("Agen Hermina")
+//                        .snippet("gold")
+//                        .icon(icon));
 
 
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(-6.987714, 110.408473))
-                        .title("Agen Pelangi")
-                        .snippet("gold")
-                        .icon(silver));
-
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(-7.0399922, 110.3525043))
-                        .title("Agen Kreo")
-                        .snippet("Silver")
-                        .icon(brows));
+//                googleMap.addMarker(new MarkerOptions()
+//                        .position(new LatLng(-6.987714, 110.408473))
+//                        .title("Agen Pelangi")
+//                        .snippet("gold")
+//                        .icon(silver));
+//
+//                googleMap.addMarker(new MarkerOptions()
+//                        .position(new LatLng(-7.0399922, 110.3525043))
+//                        .title("Agen Kreo")
+//                        .snippet("Silver")
+//                        .icon(brows));
             }
         });
 

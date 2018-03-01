@@ -26,7 +26,20 @@ import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.MenuFragment;
 import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.ProfilUserFragment;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
+import com.iavariav.root.asuransi.Rest.ApiService;
+import com.iavariav.root.asuransi.Rest.Client;
+import com.iavariav.root.asuransi.Service.Firebase.MyFirebaseInstanceIDService;
 import com.iavariav.root.asuransi.Service.Firebase.NotificationUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HomeUserActivity extends AppCompatActivity {
@@ -67,8 +80,37 @@ public class HomeUserActivity extends AppCompatActivity {
     }
 
     private void displayFirebaseRegId() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
-        String regId = pref.getString("regId", null);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, Context.MODE_PRIVATE);
+        final String regId = pref.getString("regId", null);
+
+        SharedPreferences sp = getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        String userID = sp.getString(String.valueOf(Config.SHARED_ID_USER), "");
+        ApiService apiService = Client.getInstanceRetrofit();
+        apiService.updateTokenFcm(userID, regId)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        Log.e(TAG, "response");
+                        if (response.isSuccessful()){
+                            try {
+                                JSONObject jsonObject  = new JSONObject(response.body().string());
+                                String message = jsonObject.optString("message");
+                                Log.e(TAG, "sukses msg :" + regId);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(HomeUserActivity.this, "" + Config.ERROR_NETWORK, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
         Log.e(TAG, "Firebase reg id: " + regId);
 

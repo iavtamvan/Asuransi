@@ -92,7 +92,7 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         spNamaLengkap = sp.getString(Config.SHARED_FULLNAME, "");
-        spIdUser = sp.getString(Config.SHARED_ID_USER, "");
+        spIdUser = sp.getString(String.valueOf(Config.SHARED_ID_USER), "");
 
         edtPendaftaranAgenUserNamaLengkap.setText(spNamaLengkap);
         edtPendaftaranAgenUserNamaLengkap.setFocusable(false);

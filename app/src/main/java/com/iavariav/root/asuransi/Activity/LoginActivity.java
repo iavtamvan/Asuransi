@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.isSuccessful()){
                             try {
                                 JSONObject jsonObject  = new JSONObject(response.body().string());
-                                String id = jsonObject.optString("id_user");
+                                int id = jsonObject.optInt("id_user");
                                 String nama = jsonObject.optString("nama");
                                 String rule = jsonObject.optString("rule_login");
                                 String statususer = jsonObject.optString("status_user");
@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                                     //Adding values to editor
-                                    editor.putString(Config.SHARED_ID_USER , id);
+                                    editor.putString(String.valueOf(Config.SHARED_ID_USER), String.valueOf(id));
                                     editor.putString(Config.SHARED_NAMA , nama);
                                     editor.putString(Config.SHARED_RULE_LOGIN  , rule);
                                     editor.putString(Config.SHARED_STATUS_USER , statususer);
@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
                                     //Adding values to editor
-                                    editor.putString(Config.SHARED_ID_USER , id);
+                                    editor.putString(String.valueOf(Config.SHARED_ID_USER), String.valueOf(id));
                                     editor.putString(Config.SHARED_NAMA            , nama);
                                     editor.putString(Config.SHARED_RULE_LOGIN            , rule);
                                     editor.putString(Config.SHARED_STATUS_USER          , statususer);
@@ -145,6 +145,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 Toast.makeText(LoginActivity.this, fulllname, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             } catch (IOException e) {

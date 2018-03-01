@@ -1,6 +1,7 @@
 package com.iavariav.root.asuransi.Rest;
 
 import com.iavariav.root.asuransi.Model.CallCenterModel;
+import com.iavariav.root.asuransi.Model.GetAgenModel;
 import com.iavariav.root.asuransi.Model.LoginModel;
 import com.iavariav.root.asuransi.Model.VideoModel;
 
@@ -24,6 +25,8 @@ public interface ApiService {
     Call<ArrayList<VideoModel>> getVideo();
     @GET("callcenter.php")
     Call<ArrayList<CallCenterModel>> getCallCenter();
+    @GET("get_all_agen.php")
+    Call<ArrayList<GetAgenModel>> getAgenAll();
 
     @FormUrlEncoded
     @POST("register.php")
@@ -37,6 +40,15 @@ public interface ApiService {
     @POST("login.php")
     Call<ResponseBody> login(@Field("email") String email,
                                       @Field("password") String password);
+    @FormUrlEncoded
+    @POST("update_location_user.php")
+    Call<ResponseBody> updateLoctionUser(@Field("id_user") String idUser,
+                                         @Field("lat") Double email,
+                                      @Field("lng") Double password);
+    @FormUrlEncoded
+    @POST("update_fcm_token.php")
+    Call<ResponseBody> updateTokenFcm(@Field("id_user") String idUser,
+                                      @Field("new_token") String password);
     @FormUrlEncoded
     @POST("daftarAsuransi.php")
     Call<ResponseBody> postPendaftaranAgenUser(@Field("id_user") String id,

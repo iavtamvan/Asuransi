@@ -65,7 +65,7 @@ public final class Config {
 
 //    Shared
     public static final String SHARED_PREF_NAME = "ASURANSI";
-    public static final String SHARED_ID_USER = "ID";
+    public static final int SHARED_ID_USER=0;
     public static final String SHARED_NAMA = "NAMA";
     public static final String SHARED_ERROR = "ERROR";
     public static final String SHARED_RULE_LOGIN = "RULE";
@@ -97,7 +97,7 @@ public final class Config {
         SharedPreferences preferences = context.getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         //Getting editor
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(Config.SHARED_ID_USER, "");
+        editor.putString(String.valueOf(Config.SHARED_ID_USER), "");
         editor.putString(Config.SHARED_NAMA   , "");
         editor.putString(Config.SHARED_ERROR    , "");
         editor.putString(Config.SHARED_RULE_LOGIN  , "");

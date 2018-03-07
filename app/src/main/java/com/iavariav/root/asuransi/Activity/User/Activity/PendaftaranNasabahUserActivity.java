@@ -21,10 +21,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 import com.iavariav.root.asuransi.Rest.ApiService;
 import com.iavariav.root.asuransi.Rest.Client;
+import com.iavariav.root.asuransi.Service.ServiceMaps.GPSTracker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,12 +47,17 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
     private int mSelectedMonth;
     private int mSelectedDay;
     private int random;
+    private MapView mapV;
+    GPSTracker gpsTracker;
+    private double Lat, Long;
     private String idJenisKelamin;
     private String idStatusKawin;
     private String idStatusKewarganegaraan;
     private String dataBundle;
     private String spNamaLengkap;
     private String spIdUser;
+    private String spLat;
+    private String spLong;
     private Random r;
 
     private Button btnPendaftaranAgenSubmit;
@@ -99,9 +107,19 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(PendaftaranNasabahUserActivity.this,
                 android.R.layout.simple_spinner_item, agamaItem);
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAGAMA.setAdapter(adapter);
+
+        gpsTracker = new GPSTracker(PendaftaranNasabahUserActivity.this);
+        if (gpsTracker.canGetLocation()) {
+            Lat = gpsTracker.getLatitude();
+            Long = gpsTracker.getLongitude();
+            MapsInitializer.initialize(PendaftaranNasabahUserActivity.this);
+        }
+        else {
+            gpsTracker.showSettingsAlert();
+        }
+
         btnPendaftaranAgenSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,7 +138,8 @@ public class PendaftaranNasabahUserActivity extends AppCompatActivity {
                         edtPendaftaranAgenUserPekerjaan.getText().toString().trim(),
                         idStatusKewarganegaraan,
                         idStatusKawin,
-                        dataBundle
+                        dataBundle,
+                        Lat, Long
 
                 ).enqueue(new Callback<ResponseBody>() {
                     @Override

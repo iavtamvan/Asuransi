@@ -73,6 +73,9 @@ public final class Config {
     public static final String SHARED_EMAIL = "EMAIL";
     public static final String SHARED_FULLNAME = "FULLNAME";
     public static final String SHARED_KTP = "KTP";
+
+    public static final String SHARED_LAT = "LAT";
+    public static final String SHARED_LONG = "LONG";
 //    Shared Selesai
 
 //    Bundle

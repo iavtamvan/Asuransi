@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.iavariav.root.asuransi.Activity.LoginActivity;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.Model.GetAgenModel;
 import com.iavariav.root.asuransi.R;
@@ -129,7 +130,6 @@ public class BerandaMapsFragment extends Fragment implements
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                     if (response.isSuccessful()){
                         try {
-                            Toast.makeText(getActivity(), "sukses response lat long send" , Toast.LENGTH_SHORT).show();
                             JSONObject jsonObject = new JSONObject(response.body().string());
                             String message = jsonObject.optString("message");
                         } catch (JSONException e) {
@@ -200,24 +200,24 @@ public class BerandaMapsFragment extends Fragment implements
                     }
                 });
 
-//                mMap = googleMap;
+                mMap = googleMap;
 //
 //                BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.star);
 //                BitmapDescriptor silver = BitmapDescriptorFactory.fromResource(R.drawable.silver);
 //                BitmapDescriptor brows = BitmapDescriptorFactory.fromResource(R.drawable.brows);
-//                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
-//                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//                    return;
-//                }
+                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
 //                ;
-//                LatLng user = new LatLng(Lat, Long);
+                LatLng user = new LatLng(Lat, Long);
 ////                LatLng hermina = new LatLng(-7.0247246, 110.3820431);
-//                mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
-//                mMap.animateCamera(CameraUpdateFactory.zoomTo(Config.ZOOM_TO_LEVEL));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(Config.ZOOM_TO_LEVEL));
 //                //                mMap.addCircle(new CircleOptions()
 ////                .center(user).radius(Config.RADIOUS_TO_LEVEL));
 ////                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID); // klo di hilangin jadi biasa aja
-//                mMap.setMyLocationEnabled(true);
+                mMap.setMyLocationEnabled(true);
 
 //                mMap.addPolyline(new PolylineOptions()
 //                .add(user, AKL)
@@ -271,10 +271,10 @@ public class BerandaMapsFragment extends Fragment implements
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng sydney = new LatLng(Lat, Long);
-        Toast.makeText(gpsTracker, "Berhasil : " + sydney, Toast.LENGTH_SHORT).show();
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Posisi" + Lat + Long));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng position = new LatLng(Lat, Long);
+        Toast.makeText(gpsTracker, "Berhasil : " + position, Toast.LENGTH_SHORT).show();
+        mMap.addMarker(new MarkerOptions().position(position).title("Posisi" + Lat + Long));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
     }
 
 

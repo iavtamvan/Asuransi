@@ -27,6 +27,8 @@ public interface ApiService {
     Call<ArrayList<CallCenterModel>> getCallCenter();
     @GET("get_all_agen.php")
     Call<ArrayList<GetAgenModel>> getAgenAll();
+    @GET("getHistoryNasabah.php")
+    Call<ResponseBody> getHistory();
 
     @FormUrlEncoded
     @POST("register.php")
@@ -63,7 +65,9 @@ public interface ApiService {
                                                @Field("pekerjaan") String pekerjaan,
                                                @Field("kewarganegaraan") String kewarganegaraan,
                                                @Field("status_kawin") String statuskawin,
-                                               @Field("id_jns_asuransi") String idjnsasuransi);
+                                               @Field("id_jns_asuransi") String idjnsasuransi,
+                                               @Field("lat") Double lat,
+                                               @Field("lng") Double lng);
 
 
 //    @Multipart

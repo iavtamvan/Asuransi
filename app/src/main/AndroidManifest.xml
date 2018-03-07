@@ -67,6 +67,9 @@
 
         <activity android:name=".Activity.User.Activity.PendaftaranNasabahKeAgenUserActivity"></activity>
         <activity android:name=".Activity.Agen.DetailFollowUpActivity"/>
+        <activity android:name=".Activity.User.Activity.EditProfilActivity"/>
+        <activity android:name=".Activity.User.Activity.HistoryActivity"/>
+        <activity android:name=".Activity.User.Activity.ProfilActivity"/>
     </application>
 
 </manifest>

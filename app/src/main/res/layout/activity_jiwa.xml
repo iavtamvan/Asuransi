@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.iavariav.root.asuransi.Activity.User.Activity.Video.VideoJiwaUserActivity">
 
     <VideoView
@@ -12,6 +11,44 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="95dp"
+    android:layout_centerInParent="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
+        android:id="@+id/tertarik"
+        android:textAlignment="center"
+        android:text="Tertarik dengan asuransi yang \nkami tawarkan seperti video diatas?"/>
+
+    <View
+        android:layout_below="@+id/tertarik"
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="#000"/>
+
+    <TextView
+        android:layout_below="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textStyle="italic"
+        android:textColor="#000"
+        android:textSize="23dp"
+        android:textAlignment="center"
+        android:text="SEGERA DAFTARKAN DIRI ANDA"/>
+
+</RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,45 +74,57 @@
             android:gravity="center"
             android:visibility="gone"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Asuransi Kesehatan"
+            android:textStyle="italic"
+            android:textSize="28dp"
+            android:textColor="#000"
+            android:visibility="gone"
             android:id="@+id/tvVideoAsuransiNama"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:id="@+id/tvVideoAsuransiSize"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:id="@+id/tvVideoAsuransiLink"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:id="@+id/tvVideoAsuransiCreated"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:id="@+id/tvVideoAsuransiUpdated"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tertarik dengan asuransi yang kami tawarkan seperti video diatas?"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_daftar"
-            android:text="Daftar"
-            android:textStyle="bold"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"/>
     </LinearLayout>
 
-</LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_daftar"
+        android:text="Daftar"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:layout_margin="3dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="20dp"/>
+
+
+</RelativeLayout>

@@ -22,13 +22,12 @@ import android.widget.Toast;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.BantuanNewsFragment;
 import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.BerandaMapsFragment;
+import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.LainnyaFragment;
 import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.MenuFragment;
-import com.iavariav.root.asuransi.Activity.User.Activity.Fragment.ProfilUserFragment;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 import com.iavariav.root.asuransi.Rest.ApiService;
 import com.iavariav.root.asuransi.Rest.Client;
-import com.iavariav.root.asuransi.Service.Firebase.MyFirebaseInstanceIDService;
 import com.iavariav.root.asuransi.Service.Firebase.NotificationUtils;
 
 import org.json.JSONException;
@@ -145,7 +144,7 @@ public class HomeUserActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle("Bantuan");
                     break;
                 case R.id.bottAkun:
-                    fragment = ProfilUserFragment.newInstance();
+                    fragment = LainnyaFragment.newInstance();
                     getSupportActionBar().setTitle("Profil");
                     break;
             }

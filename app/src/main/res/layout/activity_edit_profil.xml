@@ -24,11 +24,12 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:transitionName="image"
-                android:src="@drawable/as" />
+                android:src="@drawable/as"
+                android:id="@+id/cvEditProfil"/>
 
             <EditText
                 android:textAlignment="center"
-                android:id="@+id/edt_nama"
+                android:id="@+id/edtEditProfilNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Iav Ariav"
@@ -84,13 +85,14 @@
                                 android:textSize="15sp" />
 
                             <EditText
-                                android:id="@+id/edt_tanggal"
+                                android:id="@+id/edtTanggalLahir"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="10/3/1996"
                                 android:textStyle="bold"
                                 android:textColor="@color/colorPrimaryDark"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:enabled="false"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -216,7 +218,7 @@
                                 android:id="@+id/edt_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="asuransi@asuransi.com"
+                                android:hint="can@can.web.id"
                                 android:textColor="#302f2f"
                                 android:textSize="18sp" />
                         </LinearLayout>
@@ -254,7 +256,45 @@
                                 android:id="@+id/edt_tlp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="0825474870"
+                                android:hint="08383718638"
+                                android:textColor="#302f2f"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="2dp"
+                        android:background="@color/grey_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="5dp"
+                            android:tint="#302f2f"
+                            app:srcCompat="@drawable/ic_phone_android_black_24dp" />
+
+                        <LinearLayout
+                            android:layout_marginLeft="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No KTP"
+                                android:textColor="#302f2f"
+                                android:textSize="15sp" />
+
+                            <EditText
+                                android:id="@+id/edtNoKTp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="3534534534"
                                 android:textColor="#302f2f"
                                 android:textSize="18sp" />
                         </LinearLayout>

@@ -25,8 +25,6 @@ public final class Config {
     public static final String BUNDLE_ID_JENIS_ASURANSI = "jenisasuransi";
 //    selesai bundle
 
-
-
 //    permission
     public static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 1;
 //    permisson selesai
@@ -94,6 +92,9 @@ public final class Config {
     public static final String ART_CREATED_BY = "ART_CREATED_BY";
     public static final String ART_CREATED_AT = "ART_CREATED_AT";
 //    Model Selesai
+
+
+    public static final int PICK_FILE_REQUEST = 1;
 
     public static void forceLogout(Context context) {
         //Getting out shared preferences

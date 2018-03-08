@@ -7,12 +7,15 @@ import com.iavariav.root.asuransi.Model.VideoModel;
 
 import java.util.ArrayList;
 
+import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 /**
  * Created by idn on 8/12/2017.
@@ -52,6 +55,14 @@ public interface ApiService {
     Call<ResponseBody> updateTokenFcm(@Field("id_user") String idUser,
                                       @Field("new_token") String password);
     @FormUrlEncoded
+    @POST("updateProfilUser.php")
+    Call<ResponseBody> updateProfile(@Field("id_user") String idUser,
+                                      @Field("new_name") String new_name,
+                                      @Field("new_email") String new_email,
+                                      @Field("new_no_ktp") String new_no_ktp,
+                                      @Field("new_no_tlp") String new_no_tlp,
+                                      @Field("new_img_avatar") String new_img_avatar);
+    @FormUrlEncoded
     @POST("daftarAsuransi.php")
     Call<ResponseBody> postPendaftaranAgenUser(@Field("id_user") String id,
                                       @Field("nomer_verif") String noVeriv,
@@ -70,9 +81,9 @@ public interface ApiService {
                                                @Field("lng") Double lng);
 
 
-//    @Multipart
-//    @POST("upload.php")
-//    Call<Result> postIMmage(@Part MultipartBody.Part image);
+    @Multipart
+    @POST("upload.php")
+    Call<Result> postIMmage(@Part MultipartBody.Part image);
 
 
 }

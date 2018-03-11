@@ -1,6 +1,7 @@
 package com.iavariav.root.asuransi.Rest;
 
 import com.iavariav.root.asuransi.Model.CallCenterModel;
+import com.iavariav.root.asuransi.Model.CompanyModel;
 import com.iavariav.root.asuransi.Model.GetAgenModel;
 import com.iavariav.root.asuransi.Model.LoginModel;
 import com.iavariav.root.asuransi.Model.VideoModel;
@@ -32,6 +33,10 @@ public interface ApiService {
     Call<ArrayList<GetAgenModel>> getAgenAll();
     @GET("getHistoryNasabah.php")
     Call<ResponseBody> getHistory();
+    @GET("getCompanyAndroid.php")
+    Call<ArrayList<CompanyModel>> getCompany();
+
+
 
     @FormUrlEncoded
     @POST("register.php")
@@ -79,6 +84,20 @@ public interface ApiService {
                                                @Field("id_jns_asuransi") String idjnsasuransi,
                                                @Field("lat") Double lat,
                                                @Field("lng") Double lng);
+
+    @FormUrlEncoded
+    @POST("daftarLoker.php")
+    Call<ResponseBody> postPendaftaranNasabahLoker(@Field("id_user") String id_user,
+                                                   @Field("no_agn") String no_agn,
+                                                   @Field("id_company") String id_company,
+                                                   @Field("agn_name") String agn_name,
+                                                   @Field("agn_alamat") String agn_alamat,
+                                                   @Field("agn_agama") String agn_agama,
+                                                   @Field("agn_telp") String agn_telp,
+                                                   @Field("agn_wilayah") String agn_wilayah,
+                                                   @Field("id_agn_asuransi") String id_agn_asuransi,
+                                                   @Field("agn_loc_lat") double agn_loc_lat,
+                                                   @Field("agn_loc_lng") double agn_loc_lng);
 
 
     @Multipart

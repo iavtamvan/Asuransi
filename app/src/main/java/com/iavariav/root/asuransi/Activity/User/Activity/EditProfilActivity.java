@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -91,6 +92,7 @@ public class EditProfilActivity extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         idUser = sp.getString(String.valueOf(Config.SHARED_ID_USER), "");
+        Glide.with(getApplicationContext()).load(sp.getString(Config.SHARED_IMAGE, "")).error(R.drawable.aspin).into(cvEditProfil);
 
 
         cvEditProfil.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +107,7 @@ public class EditProfilActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                uploadImage();
                 postData();
+
             }
         });
     }
@@ -119,6 +122,7 @@ public class EditProfilActivity extends AppCompatActivity {
                 edtNoKTp.getText().toString().trim(),
                 edtTlp.getText().toString().trim(),
                 h
+
         ).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -127,12 +131,19 @@ public class EditProfilActivity extends AppCompatActivity {
                         JSONObject object  = new JSONObject(response.body().string());
                         String messeage = object.optString("message");
                         Toast.makeText(EditProfilActivity.this, "" + messeage, Toast.LENGTH_SHORT).show();
-                        JSONObject object1 = object.optJSONObject("user_data");
-                        String nama = object1.optString("U_NAME");
-                        String email = object1.optString("U_EMAIL");
-                        String fullname = object1.optString("U_FULLNAME");
-                        String ktp = object1.optString("U_KTP");
-                        String avatar = object1.optString("U_AVATAR");
+                        Toast.makeText(EditProfilActivity.this, "" + messeage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfilActivity.this, "" + messeage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfilActivity.this, "" + messeage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfilActivity.this, "" + messeage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfilActivity.this, "" + messeage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfilActivity.this, "" + messeage, Toast.LENGTH_SHORT).show();
+                        Log.e("Response : ", messeage);
+//                        JSONObject object1 = object.optJSONObject("user_data");
+//                        String nama = object1.optString("U_NAME");
+//                        String email = object1.optString("U_EMAIL");
+//                        String fullname = object1.optString("U_FULLNAME");
+//                        String ktp = object1.optString("U_KTP");
+//                        String avatar = object1.optString("U_AVATAR");
                         startActivity(new Intent(getApplicationContext(), HomeUserActivity.class));
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -188,6 +199,16 @@ public class EditProfilActivity extends AppCompatActivity {
 //                Glide.with(this).load(new File(imagePath)).into(cvEditProfil);
                 Picasso.with(this).load(new File(imagePath)).into(cvEditProfil);
                 h = new File(imagePath).getName();
+
+                //Creating a shared preference
+                SharedPreferences sharedPreferences = EditProfilActivity.this.getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+                //Creating editor to store values to shared preferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                //Adding values to editor
+                editor.putString(Config.SHARED_IMAGE, "http://suci.can.web.id/images/img/"+h);
+                editor.commit();
                 uploadImage();
 //                Toast.makeText(this, "Mbuh", Toast.LENGTH_SHORT).show();
                 c.close();

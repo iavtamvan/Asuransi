@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String fulllname = jsonObject.optString("fullname");
                                 String ktp = jsonObject.optString("ktp");
                                 String error_msg = jsonObject.optString("error_msg");
+                                String avatar = jsonObject.optString("avatar");
 
                                 if (rule.equals("RL_AGN")){
 //                                    startActivity(new Intent(LoginActivity.this, HomeAgenActivity.class));
@@ -113,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString(Config.SHARED_EMAIL, email);
                                     editor.putString(Config.SHARED_FULLNAME, fulllname);
                                     editor.putString(Config.SHARED_KTP , ktp);
+                                    editor.putString(Config.SHARED_IMAGE, "http://suci.can.web.id/images/img/" + avatar);
                                     //Saving values to editor
                                     editor.commit();
                                     loading.dismiss();

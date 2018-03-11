@@ -16,7 +16,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_margin="4dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,9 +31,26 @@
                     android:hint="No Agen"
                     android:id="@+id/edtNasabahAgenNoAgen"/>
             </android.support.design.widget.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Company : "
+                    android:textStyle="bold"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spnCompany">
+                </Spinner>
+            </LinearLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -59,13 +77,25 @@
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Posisi Maps"
-                    android:id="@+id/edtNasabahAgenPosisiLatLong"/>
+                    android:hint="Agama"
+                    android:id="@+id/edtNasabahAgenAgama"/>
             </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agama"/>
+            <Spinner
+                android:id="@+id/spinnerAGAMA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6sp"
+                android:layout_marginTop="6sp"
+                android:spinnerMode="dropdown" />
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -75,15 +105,65 @@
                     android:hint="Telepon"
                     android:id="@+id/edtNasabahAgenTelepon"/>
             </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Wilayah"
+                    android:id="@+id/edtNasabahAgenWilayah"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Posisi Maps"
+                    android:id="@+id/edtNasabahAgenPosisiLatLong"/>
+            </android.support.design.widget.TextInputLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Jenis Asuransi"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rbNasabahAgenUserJiwa"
+                    android:onClick="onRadioGrupClicked"
+                    android:text="Jiwa"/>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rbNasabahAgenUserKendaraan"
+                    android:onClick="onRadioGrupClicked"
+                    android:text="Kendaraan"/>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioGrupClicked"
+                    android:id="@+id/rbNasabahAgenUserKesehatan"
+                    android:text="Kesehatan"/>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioGrupClicked"
+                    android:id="@+id/rbNasabahAgenUserProperty"
+                    android:text="Property"/>
+            </RadioGroup>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:id="@+id/containerCheckBox">
+                android:id="@+id/containerCheckBox"
+                android:visibility="gone">
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -92,5 +172,6 @@
         android:layout_height="wrap_content"
         android:text="Daftar"
         android:background="@color/colorPrimaryDark"
-        android:textColor="#FFF"/>
+        android:textColor="#FFF"
+        android:id="@+id/btnNasabahAgenUserDaftar"/>
 </LinearLayout>

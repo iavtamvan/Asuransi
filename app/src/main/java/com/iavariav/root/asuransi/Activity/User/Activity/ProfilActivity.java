@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.iavariav.root.asuransi.Helper.Config;
 import com.iavariav.root.asuransi.R;
 
@@ -34,6 +35,8 @@ public class ProfilActivity extends AppCompatActivity {
         SharedPreferences sp = getApplicationContext().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         tvProfilNamaLengkap.setText(sp.getString(Config.SHARED_FULLNAME, ""));
         tvprofilStatusUser.setText(sp.getString(Config.SHARED_STATUS_USER, ""));
+        Glide.with(getApplicationContext()).load(sp.getString(Config.SHARED_IMAGE, "")).error(R.drawable.aspin).into(ciFoto);
+
         tvProfilNoHp.setText("083838191709");
         tvProfilNIK.setText(sp.getString(Config.SHARED_KTP, ""));
         tvProfilEmail.setText(sp.getString(Config.SHARED_EMAIL, ""));
